@@ -1,0 +1,12 @@
+{
+    "name": "mohsin/txt",
+    "description": "Enable humans.txt and robots.txt in OctoberCMS",
+    "homepage": "http://imoz.in",
+    "keywords": ["octobercms", "humans","robots","txt"],
+    "authors": [
+        {
+            "name": "Saifur Rahman Mohsin",
+            "email": "mohsin92@me.com"
+        }
+    ]
+}

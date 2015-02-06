@@ -1,0 +1,7 @@
+1.0.1:
+  - First version of Txt
+1.0.2:
+  - Created Humans Table
+  - create_humans_table.php
+  - Created Robots Table
+  - create_robots_table.php

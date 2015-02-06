@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Txt
+
+# Model Form Field configuration
+form: $/mohsin/txt/models/txt/fields.yaml
+
+# Model Class name
+modelClass: Mohsin\Txt\Models\Txt
+
+# Default redirect location
+defaultRedirect: mohsin/txt/txt
+
+# Create page
+create:
+    title: Create Txt
+    redirect: mohsin/txt/txt/update/:id
+    redirectClose: mohsin/txt/txt
+
+# Update page
+update:
+    title: Edit Txt
+    redirect: mohsin/txt/txt
+    redirectClose: mohsin/txt/txt
+
+# Preview page
+preview:
+    title: Preview Txt

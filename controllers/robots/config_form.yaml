@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Robot
+
+# Model Form Field configuration
+form: $/mohsin/txt/models/robot/fields.yaml
+
+# Model Class name
+modelClass: Mohsin\Txt\Models\Robot
+
+# Default redirect location
+defaultRedirect: mohsin/txt/robots
+
+# Create page
+create:
+    title: Create Robot
+    redirect: mohsin/txt/robots/update/:id
+    redirectClose: mohsin/txt/robots
+
+# Update page
+update:
+    title: Edit Robot
+    redirect: mohsin/txt/robots
+    redirectClose: mohsin/txt/robots
+
+# Preview page
+preview:
+    title: Preview Robot

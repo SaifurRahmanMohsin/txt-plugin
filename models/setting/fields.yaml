@@ -1,0 +1,12 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    use_humans:
+        label: Enable humans.txt?
+        type: switch
+
+    use_robots:
+        label: Enable robots.txt?
+        type: switch
