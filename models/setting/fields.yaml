@@ -3,6 +3,11 @@
 # ===================================
 
 fields:
+    redirectpage:
+        label: Redirect Page
+        commentAbove: Select which page to redirect to when the txt is disabled
+        type: dropdown
+
     use_humans:
         label: Enable humans.txt?
         type: switch

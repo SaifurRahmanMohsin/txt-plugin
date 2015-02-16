@@ -17,8 +17,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'mohsin.radar::lang.plugin.name',
-            'description' => 'mohsin.radar::lang.plugin.description',
+            'name'        => 'mohsin.txt::lang.plugin.name',
+            'description' => 'mohsin.txt::lang.plugin.description',
             'author'      => 'Saifur Rahman Mohsin',
             'icon'        => 'icon-map-marker'
         ];
@@ -40,6 +40,16 @@ class Plugin extends PluginBase
             ];
     }
 
+		public function registerFormWidgets()
+		{
+		    return [
+		        'Owl\FormWidgets\Hasmany\Widget' => [
+		            'label' => 'Hasmany',
+		            'alias' => 'owl-hasmany'
+		        ],
+		    ];
+		}
+
     public function registerNavigation()
     {
         return [
@@ -52,18 +62,23 @@ class Plugin extends PluginBase
                 'sideMenu' => [
                     'settings' => [
                         'label'       => 'Settings',
-                        'icon'        => 'icon-copy',
+                        'icon'        => 'icon-cog',
                         'url'         => Backend::url('mohsin/txt/settings/'),
                     ],
                     'humans' => [
                         'label'       => 'Humans',
-                        'icon'        => 'icon-copy',
+                        'icon'        => 'icon-users',
                         'url'         => Backend::url('mohsin/txt/humans'),
                     ],
                     'robots' => [
                         'label'       => 'Robots',
-                        'icon'        => 'icon-copy',
+                        'icon'        => 'icon-android',
                         'url'         => Backend::url('mohsin/txt/robots'),
+                    ],
+                    'agents' => [
+                        'label'       => 'Agents',
+                        'icon'        => 'icon-search',
+                        'url'         => Backend::url('mohsin/txt/agents'),
                     ],
                 ]
             ]

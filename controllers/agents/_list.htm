@@ -1,0 +1,31 @@
+<?php if ($items): ?>
+    <?php foreach ($items as $key => $item): ?>
+          <?php
+          	$agent = explode($delimiter, $item);
+          	if(!isset($agent[0]) || !isset($agent[1]) || $item[0] === '#')
+          		continue; // skip comments and bad entries
+          ?>
+          <tr>
+              <td class="list-checkbox nolink">
+                  <div class="checkbox custom-checkbox nolabel">
+                      <input id="checkbox_<?= $key ?>"
+                             type="checkbox"
+                             name="checked[]"
+                             value="<?= $item ?>" />
+                      <label for="checkbox_<?= $key ?>">Check</label>
+                  </div>
+              </td>
+              <td><a href="/"><?= $agent[0] ?></a></td>
+              <td>
+	              <a href="/"><?= $agent[1] ?></a>
+	              <button type="button"
+	                  class="close pull-right"
+	                  aria-hidden="true"
+	                  class=""
+	                  onclick="$(this).closest('tr').remove()">&times;
+	              </button>
+              </td>
+          </tr>
+   	 </tr>
+    <?php endforeach ?>
+<?php endif ?>

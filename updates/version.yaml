@@ -5,3 +5,7 @@
   - create_humans_table.php
   - Created Robots Table
   - create_robots_table.php
+  - Created Directives Table
+  - create_directives_table.php
+  - Created Agents Table
+  - create_agents_table.php

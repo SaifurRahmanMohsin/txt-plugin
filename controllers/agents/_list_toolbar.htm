@@ -1,0 +1,10 @@
+<div data-control="toolbar">
+    <a href="<?= Backend::url('mohsin/txt/agents/create') ?>" class="btn btn-primary oc-icon-plus">New Agent</a>
+    <a href="<?= Backend::url('mohsin/txt/agents/populate') ?>" class="btn btn-primary oc-icon-database">Populate from URL</a>
+    <a
+    data-request="onClear"
+    data-request-confirm="Are you sure you want to remove all agents?"
+    class="btn btn-primary oc-icon-trash">
+    Clear all agents
+    </a>
+</div>

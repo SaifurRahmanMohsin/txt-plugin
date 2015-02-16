@@ -21,5 +21,6 @@ class Txt extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Mohsin.Txt', 'txt', 'txt');
+        $this->pageTitle = 'Txt';
     }
 }

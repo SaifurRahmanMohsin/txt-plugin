@@ -3,6 +3,11 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+
+    agent:
+        label: Agent
         searchable: true
+
+    directives:
+        label: Directives
+        select: (SELECT COUNT(*) FROM mohsin_txt_directives WHERE robot_id = mohsin_txt_robots.id)

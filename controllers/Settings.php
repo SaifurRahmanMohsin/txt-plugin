@@ -15,41 +15,25 @@ class Settings extends Controller
 {
     public $instance;
 
-    public $details;
-
     public function __construct()
     {
         parent::__construct();
-        $this -> details = array("author" => "mohsin", "plugin" => "txt", "code" => "settings");
+        $this->pageTitle = 'Txt Settings';
         $this -> instance = new SettingsController();
-        
-        $this -> instance -> update(
-            $this -> details['author'],
-            $this -> details['plugin'],
-            $this -> details['code']);
-
-        $manager = SettingsManager::instance();
-        //die('hi' .$this -> url);
+        $this -> instance -> update("mohsin","txt","settings");
         BackendMenu::setContext('Mohsin.Txt', 'txt', 'settings');
-        SettingsManager::setContext('Mohsin.Txt', 'settings');
     }
 
     public function index() {}
 
     public function onSave()
     {
-        $this -> instance -> update_onSave(
-            $this -> details['author'],
-            $this -> details['plugin'],
-            $this -> details['code']);
+        $this -> instance -> update_onSave("mohsin","txt","settings");
     }
 
     public function onResetDefault()
     {
-        $this -> instance -> update_onResetDefault(
-            $this -> details['author'],
-            $this -> details['plugin'],
-            $this -> details['code']);
+        $this -> instance -> update_onResetDefault("mohsin","txt","settings");
     }
 
 }

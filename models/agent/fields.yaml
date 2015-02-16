@@ -1,0 +1,16 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Agent Name
+        commentAbove: The name of the search agent
+        placeholder: Googlebot
+        disabled: true
+
+    comment:
+        label: Comment
+        commentAbove: A human friendly name to identify the agent
+        placeholder: Google's Web Crawler
+        disabled: true

@@ -3,16 +3,16 @@
 # ===================================
 
 # Model List Column configuration
-list: $/mohsin/txt/models/txt/columns.yaml
+list: $/mohsin/txt/models/agent/columns.yaml
 
 # Model Class name
-modelClass: Mohsin\Txt\Models\Txt
+modelClass: Mohsin\Txt\Models\Agent
 
 # List Title
-title: Manage Txts
+title: Manage Agents
 
 # Link URL for each record
-recordUrl: mohsin/txt/txt/update/:id
+recordUrl: mohsin/txt/agents/update/:id
 
 # Message to display if the list is empty
 noRecordsMessage: backend::lang.list.no_records

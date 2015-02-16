@@ -3,28 +3,28 @@
 # ===================================
 
 # Record name
-name: Robot
+name: Agent
 
 # Model Form Field configuration
-form: $/mohsin/txt/models/robot/fields.yaml
+form: $/mohsin/txt/models/agent/fields.yaml
 
 # Model Class name
-modelClass: Mohsin\Txt\Models\Robot
+modelClass: Mohsin\Txt\Models\Agent
 
 # Default redirect location
-defaultRedirect: mohsin/txt/robots
+defaultRedirect: mohsin/txt/agents
 
 # Create page
 create:
     title: Create Agent
-    redirect: mohsin/txt/robots/update/:id
-    redirectClose: mohsin/txt/robots
+    redirect: mohsin/txt/agents/update/:id
+    redirectClose: mohsin/txt/agents
 
 # Update page
 update:
     title: Edit Agent
-    redirect: mohsin/txt/robots
-    redirectClose: mohsin/txt/robots
+    redirect: mohsin/txt/agents
+    redirectClose: mohsin/txt/agents
 
 # Preview page
 preview:

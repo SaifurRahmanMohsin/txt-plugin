@@ -5,8 +5,8 @@
         <div class="layout-row">
             <?= $this -> instance -> formRender() ?>
         </div>
-
         <div class="form-buttons">
+            <div class="help-block before-field">This plugin is based on the <a href="http://www.robotstxt.org/orig.html" target="_new">RobotsTxt</a> and <a href="http://humanstxt.org/Standard.html" target="_new">HumansTxt</a> standards.</div>
             <div class="loading-indicator-container">
                 <button
                     type="submit"
@@ -26,7 +26,6 @@
                     class="btn btn-default">
                     <?= e(trans('backend::lang.form.save_and_close')) ?>
                 </button>
-
                 <button
                     type="button"
                     class="btn btn-danger pull-right"

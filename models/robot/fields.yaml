@@ -3,6 +3,16 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    agent:
+        label: User-Agent
+        type: dropdown
+
+    directives:
+        label: Directives
+        type: Mohsin\Txt\FormWidgets\HasMany
+        sort_column: position
+        default:
+            label: "<b>{{ type }}</b>"
+            comment: >
+                &nbsp;{{ data }}
+            icon: icon-android

@@ -1,0 +1,11 @@
+# This file contains a list of common search agents
+*|All
+Googlebot|Google's web crawler
+baiduspider|Baidu's web crawler
+Bingbot|Microsoft's web crawler
+ia_archiver|The Internet Archive
+Naverbot|South Korean Naver web crawler
+Yeti|South Korean Yeti web crawler
+seznambot|Czech Republic Sezna web crawler
+Slurp|Yahoo! Slurp web crawler
+Yandex|Russian Yandex web crawler

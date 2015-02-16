@@ -1,6 +1,7 @@
 <?php namespace Mohsin\Txt\Models;
 
 use Model;
+use Mohsin\Txt\Models\Agent;
 
 /**
  * Robot Model
@@ -14,26 +15,27 @@ class Robot extends Model
     public $table = 'mohsin_txt_robots';
 
     /**
-     * @var array Guarded fields
-     */
-    protected $guarded = ['*'];
-
-    /**
-     * @var array Fillable fields
-     */
-    protected $fillable = [];
-
-    /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $hasMany = [
+        'directives' => ['Mohsin\Txt\Models\Directive', 'table' => 'mohsin_txt_directive', 'order' => 'position asc']
+    ];
 
+    public function getAgentOptions($fieldName = null, $keyValue = null)
+    {
+    	return Agent::lists('comment','name');
+    }
+
+    public function generateTxt()
+    {
+    	$robots = "";
+    	foreach(Robot::all() as $robot)
+    		{
+    				$robots .= 'User-agent: ' . $robot -> agent . PHP_EOL;
+    				foreach($robot -> directives as $directive)
+    					$robots .= $directive -> type . ': ' .$directive -> data . PHP_EOL;
+    				$robots .= PHP_EOL;
+    		}
+    	return $robots;
+    }
 }

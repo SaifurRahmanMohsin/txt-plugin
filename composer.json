@@ -2,7 +2,7 @@
     "name": "mohsin/txt",
     "description": "Enable humans.txt and robots.txt in OctoberCMS",
     "homepage": "http://imoz.in",
-    "keywords": ["octobercms", "humans","robots","txt"],
+    "keywords": ["octobercms", "humans","robots","txt", "attribution"],
     "authors": [
         {
             "name": "Saifur Rahman Mohsin",

@@ -1,19 +1,19 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('mohsin/txt/txt') ?>">Txt</a></li>
+        <li><a href="<?= Backend::url('mohsin/txt/agents') ?>">Agents</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
 
 <?php if (!$this->fatalError): ?>
 
-    <div class="layout-item stretch layout-column form-preview">
+    <div class="form-preview">
         <?= $this->formRenderPreview() ?>
     </div>
 
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('mohsin/txt/txt') ?>" class="btn btn-default">Return to txt list</a></p>
+    <p><a href="<?= Backend::url('mohsin/txt/agents') ?>" class="btn btn-default">Return to agents list</a></p>
 
 <?php endif ?>

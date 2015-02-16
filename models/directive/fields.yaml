@@ -1,0 +1,13 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    type:
+        label: Type
+        type: dropdown
+
+    data:
+        label: Data
+        commentAbove: Enter a string for comment, a relative URL for other types
+        placeholder: "/private"

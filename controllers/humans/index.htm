@@ -1,2 +1,7 @@
-
-<?= $this->listRender() ?>
+<?php if($this -> enabled): ?>
+	<?= $this->listRender() ?>
+<?php else: ?>
+	<div class="layout-item stretch layout-column">
+		<p class="flash-message static error"><?= e(trans('mohsin.txt::lang.exception.ask_enable', ['file' => 'humans.txt'])) ?></p>
+	</div>
+<?php endif; ?>

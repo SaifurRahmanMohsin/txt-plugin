@@ -1,6 +1,6 @@
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('mohsin/txt/txt') ?>">Txt</a></li>
+        <li><a href="<?= Backend::url('mohsin/txt/agents') ?>">Agents</a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -20,7 +20,7 @@
                     data-request="onSave"
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Saving Txt..."
+                    data-load-indicator="Saving Agent..."
                     class="btn btn-primary">
                     <u>S</u>ave
                 </button>
@@ -29,7 +29,7 @@
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Saving Txt..."
+                    data-load-indicator="Saving Agent..."
                     class="btn btn-default">
                     Save and Close
                 </button>
@@ -37,11 +37,11 @@
                     type="button"
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
-                    data-load-indicator="Deleting Txt..."
-                    data-request-confirm="Do you really want to delete this txt?">
+                    data-load-indicator="Deleting Agent..."
+                    data-request-confirm="Do you really want to delete this agent?">
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('mohsin/txt/txt') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('mohsin/txt/agents') ?>">Cancel</a>
                 </span>
             </div>
         </div>
@@ -51,6 +51,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('mohsin/txt/txt') ?>" class="btn btn-default">Return to txt list</a></p>
+    <p><a href="<?= Backend::url('mohsin/txt/agents') ?>" class="btn btn-default">Return to agents list</a></p>
 
 <?php endif ?>

@@ -1,0 +1,12 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: Agent Name
+        searchable: true
+
+    comment:
+        label: Comment
+        searchable: true
