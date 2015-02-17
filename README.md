@@ -17,10 +17,8 @@ mv Txt-master txt
 ```
 Logout from your backend and login again. This will create the necessary tables for the plugin to work. You have now installed Txt!
 
-## Todo ##
-* Code to generate humans.txt
-
 ## Thanks ##
 
 [Alexey Bobkov and Samuel Georges](http://octobercms.com) for OctoberCMS.
+
 [Scott Bedard](https://github.com/scottbedard) for HasMany Widget.

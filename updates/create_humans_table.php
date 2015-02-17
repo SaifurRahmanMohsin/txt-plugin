@@ -12,6 +12,7 @@ class CreateHumansTable extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('attribution');
             $table->timestamps();
         });
     }

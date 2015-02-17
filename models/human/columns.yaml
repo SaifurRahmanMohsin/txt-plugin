@@ -3,6 +3,11 @@
 # ===================================
 
 columns:
-    id:
-        label: ID
+
+    attribution:
+        label: Attribution
         searchable: true
+
+    information:
+        label: Information
+        select: (SELECT group_concat(value SEPARATOR ', ') FROM mohsin_txt_information WHERE human_id = mohsin_txt_humans.id)

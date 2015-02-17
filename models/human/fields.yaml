@@ -3,6 +3,16 @@
 # ===================================
 
 fields:
-    id:
-        label: ID
-        disabled: true
+    attribution:
+        label: Attribution
+        type: dropdown
+
+    information:
+        label: Information
+        type: Mohsin\Txt\FormWidgets\HasMany
+        sort_column: position
+        default:
+            label: "<b>{{ field }}</b>"
+            comment: >
+                &nbsp;{{ value }}
+            icon: icon-file-text-o

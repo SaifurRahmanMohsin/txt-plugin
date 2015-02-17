@@ -1,0 +1,12 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    field:
+        label: Field
+        disabled: true
+
+    value:
+        label: Value
+        disabled: true
