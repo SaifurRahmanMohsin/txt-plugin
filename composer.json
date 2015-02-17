@@ -8,5 +8,8 @@
             "name": "Saifur Rahman Mohsin",
             "email": "mohsin92@me.com"
         }
-    ]
+    ],
+    "require": {
+        "owl/hasmany": "~1.0@dev"
+    }
 }

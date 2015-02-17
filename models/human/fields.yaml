@@ -9,7 +9,7 @@ fields:
 
     information:
         label: Information
-        type: Mohsin\Txt\FormWidgets\HasMany
+        type: owl-hasmany
         sort_column: position
         default:
             label: "<b>{{ field }}</b>"
