@@ -5,7 +5,11 @@ Txt Generator for OctoberCMS
 As the title says, it allows you to generate [humans.txt](http://humanstxt.org/Standard.html) and [robots.txt](http://www.robotstxt.org/orig.html) for your web app.
 
 ## Installation ##
-Until this plugin is added to the market place, you will have to manually install it from command line. CD into your OctoberCMS project folder and paste these commands. It will execute one after another:
+#### MarketPlace Installation ####
+You can use the plugin code **Mohsin.Txt** in your October backend to get this plugin. Enjoy!!!
+
+#### Manual Installation ####
+Some advanced users might prefer to use manually install the plugin. This can be done using the command line. CD into your OctoberCMS project folder and paste these commands. It will execute one after another:
 ```
 [ -f artisan ] && cd plugins
 mkdir -p mohsin
@@ -18,7 +22,7 @@ cd txt
 composer up
 
 ```
-Logout from your backend and login again. This will create the necessary tables for the plugin to work. You have now installed Txt!
+Logout from your backend and login again. This will create the necessary tables for the plugin to work. You have now installed Txt! Enjoy!!!
 
 ## Thanks ##
 

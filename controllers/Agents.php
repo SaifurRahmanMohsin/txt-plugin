@@ -37,11 +37,12 @@ class Agents extends Controller
 
     public function onFetch()
     {
-    	if( empty(trim(post('url'))) )
+    	$url = trim( post('url') );
+    	if( empty( $url ) )
     		throw new ApplicationException('URL field is empty');
     	$client = new Client();
     	try {
-			$response = $client->get(post('url'));
+			$response = $client->get($url);
 		} catch(RequestException $ex) {
 			throw new ApplicationException('The resource appears to be unavailable at the specified URL');
 		}
