@@ -4,10 +4,11 @@ use Flash;
 use Redirect;
 use BackendMenu;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
 use ApplicationException;
 use Mohsin\Txt\Models\Agent;
 use Backend\Classes\Controller;
+use System\Classes\SettingsManager;
+use GuzzleHttp\Exception\RequestException;
 
 /**
  * Agents Back-end Controller
@@ -26,7 +27,8 @@ class Agents extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Mohsin.Txt', 'txt', 'agents');
+        SettingsManager::setContext('Mohsin.Txt', 'agents');
+        BackendMenu::setContext('October.System', 'system', 'settings');
     }
 
     public function populate()

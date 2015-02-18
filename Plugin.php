@@ -30,12 +30,36 @@ class Plugin extends PluginBase
             'settings' => [
                 'label'       => 'mohsin.txt::lang.settings.label',
                 'description' => 'mohsin.txt::lang.settings.description',
-                'category'    => 'system::lang.system.categories.cms',
+                'category'    => 'mohsin.txt::lang.plugin.name',
                 'icon'        => 'icon-cog',
                 'url'         => Backend::url('mohsin/txt/settings'),
                 'class'       => 'Mohsin\Txt\Models\Setting',
-                'order'       => 500,
+                'order'       => 600,
                 'keywords'    => 'txt robots humans'
+            ],
+            'humans' => [
+                'label'       => 'mohsin.txt::lang.humans.label',
+                'description' => 'mohsin.txt::lang.humans.description',
+                'category'    => 'mohsin.txt::lang.plugin.name',
+                'icon'        => 'icon-users',
+                'order'       => 601,
+                'url'         => Backend::url('mohsin/txt/humans')
+            ],
+            'robots' => [
+                'label'       => 'mohsin.txt::lang.robots.label',
+                'description' => 'mohsin.txt::lang.robots.description',
+                'category'    => 'mohsin.txt::lang.plugin.name',
+                'icon'        => 'icon-android',
+                'order'       => 602,
+                'url'         => Backend::url('mohsin/txt/robots')
+            ],
+            'agents' => [
+                'label'       => 'mohsin.txt::lang.agents.label',
+                'description' => 'mohsin.txt::lang.agents.description',
+                'category'    => 'mohsin.txt::lang.plugin.name',
+                'icon'        => 'icon-search',
+                'order'       => 603,
+                'url'         => Backend::url('mohsin/txt/agents')
             ]
             ];
     }
@@ -49,39 +73,4 @@ class Plugin extends PluginBase
 		        ],
 		    ];
 		}
-
-    public function registerNavigation()
-    {
-        return [
-            'txt' => [
-                'label'       => 'Txt',
-                'url'         => Backend::url('mohsin/txt/settings'),
-                'icon'        => 'icon-pencil',
-                'order'       => 500,
-
-                'sideMenu' => [
-                    'settings' => [
-                        'label'       => 'Settings',
-                        'icon'        => 'icon-cog',
-                        'url'         => Backend::url('mohsin/txt/settings/'),
-                    ],
-                    'humans' => [
-                        'label'       => 'Humans',
-                        'icon'        => 'icon-users',
-                        'url'         => Backend::url('mohsin/txt/humans'),
-                    ],
-                    'robots' => [
-                        'label'       => 'Robots',
-                        'icon'        => 'icon-android',
-                        'url'         => Backend::url('mohsin/txt/robots'),
-                    ],
-                    'agents' => [
-                        'label'       => 'Agents',
-                        'icon'        => 'icon-search',
-                        'url'         => Backend::url('mohsin/txt/agents'),
-                    ],
-                ]
-            ]
-        ];
-    }
 }

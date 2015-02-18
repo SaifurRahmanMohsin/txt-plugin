@@ -3,6 +3,7 @@
 use BackendMenu;
 use Mohsin\Txt\Models\Setting;
 use Backend\Classes\Controller;
+use System\Classes\SettingsManager;
 
 /**
  * Robots Back-end Controller
@@ -26,7 +27,8 @@ class Robots extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Mohsin.Txt', 'txt', 'robots');
+        SettingsManager::setContext('Mohsin.Txt', 'robots');
+        BackendMenu::setContext('October.System', 'system', 'settings');
 
         if(!Setting::get('use_robots'))
             $this -> enabled = false;

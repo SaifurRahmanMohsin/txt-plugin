@@ -3,6 +3,7 @@
 use BackendMenu;
 use Mohsin\Txt\Models\Setting;
 use Backend\Classes\Controller;
+use System\Classes\SettingsManager;
 
 /**
  * Humans Back-end Controller
@@ -31,7 +32,8 @@ class Humans extends Controller
     {
         parent::__construct();
 
-        BackendMenu::setContext('Mohsin.Txt', 'txt', 'humans');
+        SettingsManager::setContext('Mohsin.Txt', 'humans');
+        BackendMenu::setContext('October.System', 'system', 'settings');
 
         if(!Setting::get('use_humans'))
             $this -> enabled = false;

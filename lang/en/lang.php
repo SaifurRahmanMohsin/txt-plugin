@@ -7,13 +7,19 @@ return [
   ],
   'robots' => [
     'label' => 'Robots',
+    'description' => 'Add robot entries.'
   ],
   'humans' => [
     'label' => 'Humans',
+    'description' => 'Add human entries.'
+  ],
+  'agents' => [
+    'label' => 'Agents',
+    'description' => 'Add agent entries.'
   ],
   'settings' => [
-    'label' => 'Txt Settings',
-    'description' => 'Enabled / Disable available txts.',
+    'label' => 'Settings',
+    'description' => 'Manage Txt configuration.',
   ],
   'exception' => [
     'ask_enable' => 'First enable :file to view this page',
