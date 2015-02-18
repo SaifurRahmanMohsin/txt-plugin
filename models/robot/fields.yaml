@@ -10,7 +10,7 @@ fields:
     directives:
         label: Directives
         type: owl-hasmany
-        sort_column: position
+        sortColumn: position
         default:
             label: "<b>{{ type }}</b>"
             comment: >

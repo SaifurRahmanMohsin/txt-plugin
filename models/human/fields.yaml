@@ -10,7 +10,7 @@ fields:
     information:
         label: Information
         type: owl-hasmany
-        sort_column: position
+        sortColumn: position
         default:
             label: "<b>{{ field }}</b>"
             comment: >
