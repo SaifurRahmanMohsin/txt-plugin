@@ -69,7 +69,7 @@ class Plugin extends PluginBase
 		    return [
 		        'Owl\FormWidgets\HasMany\Widget' => [
 		            'label' => 'Hasmany',
-		            'alias' => 'owl-hasmany'
+		            'code' => 'owl-hasmany'
 		        ],
 		    ];
 		}

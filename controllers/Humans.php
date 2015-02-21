@@ -39,9 +39,8 @@ class Humans extends Controller
             $this -> enabled = false;
     }
 
-    public function generateTxt()
-    {
-        if (!$this->humans)
-            return "This is humans.txt. Yet to be implemented";
+    public function listOverrideColumnValue($record, $columnName){
+        if( $columnName == "information" )
+            return $record -> information;
     }
 }
