@@ -10,4 +10,3 @@ columns:
 
     directives:
         label: Directives
-        select: (SELECT COUNT(*) FROM mohsin_txt_directives WHERE robot_id = mohsin_txt_robots.id)

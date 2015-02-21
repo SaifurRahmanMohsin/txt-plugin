@@ -33,4 +33,9 @@ class Robots extends Controller
         if(!Setting::get('use_robots'))
             $this -> enabled = false;
     }
+
+    public function listOverrideColumnValue($record, $columnName){
+        if( $columnName == "directives" )
+            return count($record -> directives);
+    }
 }
