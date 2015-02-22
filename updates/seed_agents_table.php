@@ -21,7 +21,7 @@ class SeedAgentsTable extends Seeder
             ['name' => 'Yandex',      'comment' => "Russian Yandex web crawler"],
         ];
         foreach($agents as $agent)
-        Agent::create([
+        Agent::updateOrCreate([
             'name'                 => $agent['name'],
             'comment'              => $agent['comment'],
         ]);
