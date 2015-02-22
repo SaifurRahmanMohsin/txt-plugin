@@ -41,6 +41,6 @@ class Humans extends Controller
 
     public function listOverrideColumnValue($record, $columnName){
         if( $columnName == "information" )
-            return $record -> information;
+            return $record -> information -> implode('value', ', ');
     }
 }

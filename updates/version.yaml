@@ -11,3 +11,6 @@
   - create_agents_table.php
   - Created Information Table
   - create_information_table.php
+1.0.3:
+    - Add seed data for agents table.
+    - seed_agents_table.php
