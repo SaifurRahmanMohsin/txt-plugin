@@ -8,7 +8,6 @@ use Mohsin\Txt\Models\Agent;
  */
 class Robot extends Model
 {
-
     /**
      * @var string The database table used by the model.
      */
@@ -21,11 +20,21 @@ class Robot extends Model
         'directives' => ['Mohsin\Txt\Models\Directive', 'table' => 'mohsin_txt_directive', 'order' => 'position asc']
     ];
 
+    /**
+     * Returns associative array of available agents.
+     *
+     * @return array
+     */
     public function getAgentOptions($fieldName = null, $keyValue = null)
     {
     	return Agent::lists('comment','name');
     }
 
+    /**
+     * Returns generated text from the Robot model.
+     *
+     * @return string
+     */
     public function generateTxt()
     {
     	$robots = "";

@@ -35,5 +35,4 @@ class Settings extends Controller
     {
         $this -> instance -> update_onResetDefault("mohsin","txt","settings");
     }
-
 }

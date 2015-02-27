@@ -7,7 +7,6 @@ use Model;
  */
 class Agent extends Model
 {
-
     /**
      * @var string The database table used by the model.
      */
@@ -19,5 +18,4 @@ class Agent extends Model
     public $rules = [
         'name' => 'required'
     ];
-
 }

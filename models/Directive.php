@@ -26,7 +26,8 @@ class Directive extends Model
      * @var array Relations
      */
     public $belongsTo = [
-        'robot' => ['Mohsin\txt\Models\Robot', 'table' => 'mohsin_txt_robots']
+        'robot' => ['Mohsin\txt\Models\Robot',
+        'table' => 'mohsin_txt_robots']
     ];
 
     /**
@@ -47,5 +48,4 @@ class Directive extends Model
     	return ['Allow' => 'Allow',
     					'Disallow' => 'Disallow'];
     }
-
 }

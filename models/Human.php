@@ -23,10 +23,10 @@ class Human extends Model
 
     public function getAttributionOptions($fieldName = null, $keyValue = null)
     {
-    	return ['Team' => 'Team',
-    					'Site' => 'Site',
-    					'Thanks' => 'Thanks',
-    					'Technology' => 'Technology'];
+      $human_fields = explode(',', Setting::get('human_fields'));
+      array_walk($human_fields, 'trim');
+      $fields = array_combine($human_fields, $human_fields);
+    	return $fields;
     }
 
     public function generateTxt()

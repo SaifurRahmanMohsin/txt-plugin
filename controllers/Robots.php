@@ -34,8 +34,9 @@ class Robots extends Controller
             $this -> enabled = false;
     }
 
-    public function listOverrideColumnValue($record, $columnName){
-        if( $columnName == "directives" )
+    public function listOverrideColumnValue($record, $columnName)
+    {
+        if($columnName == "directives")
             return count($record -> directives);
     }
 }

@@ -14,28 +14,28 @@
         </div>
 
         <div class="form-buttons">
-            <div class="loading-indicator-container">
-                <button
-                    type="submit"
-                    data-request="onSave"
-                    data-hotkey="ctrl+s, cmd+s"
-                    data-load-indicator="Creating Agent..."
-                    class="btn btn-primary">
-                    Create
-                </button>
-                <button
-                    type="button"
-                    data-request="onSave"
-                    data-request-data="close:1"
-                    data-hotkey="ctrl+enter, cmd+enter"
-                    data-load-indicator="Creating Agent..."
-                    class="btn btn-default">
-                    Create and Close
-                </button>
-                <span class="btn-text">
-                    or <a href="<?= Backend::url('mohsin/txt/agents') ?>">Cancel</a>
-                </span>
-            </div>
+          <div class="loading-indicator-container">
+            <button
+                type="submit"
+                data-request="onSave"
+                data-hotkey="ctrl+s, cmd+s"
+                data-load-indicator="Creating Agent..."
+                class="btn btn-primary">
+                Create
+            </button>
+            <button
+                type="button"
+                data-request="onSave"
+                data-request-data="close:1"
+                data-hotkey="ctrl+enter, cmd+enter"
+                data-load-indicator="Creating Agent..."
+                class="btn btn-default">
+                Create and Close
+            </button>
+            <span class="btn-text">
+                or <a href="<?= Backend::url('mohsin/txt/agents') ?>">Cancel</a>
+            </span>
+          </div>
         </div>
 
     <?= Form::close() ?>

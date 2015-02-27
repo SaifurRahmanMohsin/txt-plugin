@@ -31,35 +31,48 @@ class Agents extends Controller
         BackendMenu::setContext('October.System', 'system', 'settings');
     }
 
+    /**
+     * Returns the populate controller action.
+     *
+     * @return action
+     */
     public function populate()
     {
     	$this->pageTitle = "Populate";
     	$this->addJs('/modules/backend/widgets/lists/assets/js/october.list.js', 'core');
     }
 
+    /**
+     * Fetches content from given URL and parses it into the list.
+     *
+     * @return void
+     */
     public function onFetch()
     {
-    	$url = trim( post('url') );
-    	if( empty( $url ) )
-    		throw new ApplicationException('URL field is empty');
-    	$client = new Client();
+      // Initialization
+    	$url = trim(post('url'));
+    	if(empty($url)) throw new ApplicationException('URL field is empty');
+      $client = new Client();
+
+      // Fetch contents from given URL
     	try {
-			$response = $client->get($url);
-		} catch(RequestException $ex) {
-			throw new ApplicationException('The resource appears to be unavailable at the specified URL');
-		}
+  			$response = $client->get($url);
+  		} catch(RequestException $ex) {
+  			throw new ApplicationException('The resource appears to be unavailable at the specified URL');
+  		}
+
+      // Split the elements and inject it into the page
 			$agents = explode("\n", $response->getBody());
     	$this -> vars['delimiter'] = post('delimiter');
     	$this -> vars['items'] = $agents;
-    	return "done";
     }
 
-    public function onClear()
-    {
-    	Agent::truncate();
-    	return Redirect::to('backend/mohsin/txt/agents');
-    }
-
+    /**
+     * Adds all the selected entries to the agents model
+     * and redirects to the agents page
+     *
+     * @return Redirect
+     */
     public function onAccept()
     {
       if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) {
@@ -75,5 +88,16 @@ class Agents extends Controller
         Flash::success('Successfully Added Items');
       }
     	return Redirect::to('backend/mohsin/txt/agents');
+    }
+
+    /**
+     * Clears all the entries from the agents model.
+     *
+     * @return void
+     */
+    public function onClear()
+    {
+      Agent::truncate();
+      return Redirect::to('backend/mohsin/txt/agents');
     }
 }

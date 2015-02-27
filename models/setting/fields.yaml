@@ -15,3 +15,11 @@ fields:
     use_robots:
         label: Enable robots.txt?
         type: switch
+
+    human_fields:
+        label: Human Fields
+        commentAbove: Comma - Seperated list of allowed human entries
+        trigger:
+            action: show
+            field: use_humans
+            condition: checked
