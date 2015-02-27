@@ -17,7 +17,7 @@ return [
     'description' => 'Agent kayıtları.'
   ],
   'settings' => [
-    'label' => 'Settings',
+    'label' => 'Ayarlar',
     'description' => 'TXT ayarlarını yönet.',
   ],
   'exception' => [
