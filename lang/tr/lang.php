@@ -21,6 +21,6 @@ return [
     'description' => 'TXT ayarlarını yönet.',
   ],
   'exception' => [
-    'ask_enable' => 'Bu sayfaya erişmeden önce :file'yi aktif etmelisiniz.',
+    'ask_enable' => 'Bu sayfaya erişmeden önce :file\'yi aktif etmelisiniz.',
   ]
 ];
