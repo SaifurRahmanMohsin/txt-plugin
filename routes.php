@@ -16,3 +16,23 @@ Route::get('humans.txt', function (){
     	return Redirect::to(Page::url(Setting::get('redirectpage')));
     return Response::make(Human::first()->generateTxt(), 200, array('Content-Type' => 'text/plain'));
 });
+
+Route::get('browserconfig.xml', function (){
+  if (!$theme = Theme::getEditTheme())
+    throw new ApplicationException('Unable to find the active theme.');
+  $app_path = URL::to('/'). '/themes/'. $theme->getDirName() . '/assets/images/ico';
+  $msft_icons = <<< THEXML
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logo src="$app_path/tile.png"/>
+            <square150x150logo src="$app_path/tile.png"/>
+            <wide310x150logo src="$app_path/tile-wide.png"/>
+            <square310x310logo src="$app_path/tile.png"/>
+        </tile>
+    </msapplication>
+</browserconfig>
+THEXML;
+    return Response::make($msft_icons, 200, array('Content-Type' => 'application/xml'));
+});
