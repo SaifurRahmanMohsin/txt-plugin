@@ -1,6 +1,7 @@
 <?php
 
 use Cms\Classes\Page;
+use Cms\Classes\Theme;
 use Mohsin\Txt\Models\Robot;
 use Mohsin\Txt\Models\Human;
 use Mohsin\Txt\Models\Setting;
