@@ -6,6 +6,6 @@ Bingbot|Microsoft's web crawler
 ia_archiver|The Internet Archive
 Naverbot|South Korean Naver web crawler
 Yeti|South Korean Yeti web crawler
-seznambot|Czech Republic Sezna web crawler
+seznambot|Czech Republic Seznam web crawler
 Slurp|Yahoo! Slurp web crawler
 Yandex|Russian Yandex web crawler
