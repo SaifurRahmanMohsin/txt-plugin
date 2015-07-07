@@ -20,6 +20,20 @@ return [
   'settings' => [
     'label' => 'Ustawienia',
     'description' => 'Zarządzaj konfiguracją modułu Txt.',
+    'redirectpage' => [
+      'label' => 'Redirect Page',
+      'commentAbove' => 'Select which page to redirect to when the txt is disabled'
+    ],
+    'use_humans' => [
+      'label' => 'Enable humans.txt?'
+    ],
+    'use_robots' => [
+      'label' => 'Enable robots.txt?'
+    ],
+    'human_fields' => [
+      'label' => 'Human Fields',
+      'commentAbove' => 'Comma - Seperated list of allowed human entries'
+    ]
   ],
   'exception' => [
     'ask_enable' => 'Najpierw włącz możliwość edycji :file w ustawieniach by zobaczyć tą stronę',
