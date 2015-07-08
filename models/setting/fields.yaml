@@ -4,21 +4,21 @@
 
 fields:
     redirectpage:
-        label: Redirect Page
-        commentAbove: Select which page to redirect to when the txt is disabled
+        label: mohsin.txt::lang.settings.redirectpage.label
+        commentAbove: mohsin.txt::lang.settings.redirectpage.commentAbove
         type: dropdown
 
-    use_humans:
-        label: Enable humans.txt?
+    use_robots:
+        label: mohsin.txt::lang.settings.use_robots.label
         type: switch
 
-    use_robots:
-        label: Enable robots.txt?
+    use_humans:
+        label: mohsin.txt::lang.settings.use_humans.label
         type: switch
 
     human_fields:
-        label: Human Fields
-        commentAbove: Comma - Seperated list of allowed human entries
+        label: mohsin.txt::lang.settings.human_fields.label
+        commentAbove: mohsin.txt::lang.settings.human_fields.commentAbove
         trigger:
             action: show
             field: use_humans
