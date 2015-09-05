@@ -14,3 +14,5 @@
 1.0.3:
     - Add seed data for agents table.
     - seed_agents_table.php
+1.0.4:
+    - Minor Bug Fix
