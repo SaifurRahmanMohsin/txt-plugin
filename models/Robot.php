@@ -1,5 +1,6 @@
 <?php namespace Mohsin\Txt\Models;
 
+use URL;
 use Model;
 use Mohsin\Txt\Models\Agent;
 
@@ -45,6 +46,15 @@ class Robot extends Model
     					$robots .= $directive -> type . ': ' .$directive -> data . PHP_EOL;
     				$robots .= PHP_EOL;
     		}
+
+      /*
+       * Compatability with RainLab.Sitemap
+       */
+      if (class_exists('\RainLab\Sitemap\Classes\DefinitionItem')){
+          $url = URL::to('/sitemap.xml');;
+          $robots .= 'Sitemap: ' . $url;
+      }
+
     	return $robots;
     }
 }

@@ -16,3 +16,5 @@
     - seed_agents_table.php
 1.0.4:
     - Minor Bug Fix
+1.0.5:
+    - Added compatability with RainLab.Sitemap
