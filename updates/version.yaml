@@ -18,3 +18,5 @@
     - Minor Bug Fix
 1.0.5:
     - Added compatability with RainLab.Sitemap
+1.0.6:
+    - Added setting permissions. PR by @matissjanis

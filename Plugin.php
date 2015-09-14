@@ -24,6 +24,28 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerPermissions()
+    {
+        return [
+            'mohsin.txt.access_settings' => [
+                'tab' => 'mohsin.txt::lang.plugin.name',
+                'label' => 'mohsin.txt::lang.permissions.access_settings',
+            ],
+            'mohsin.txt.access_humans' => [
+                'tab' => 'mohsin.txt::lang.plugin.name',
+                'label' => 'mohsin.txt::lang.permissions.access_humans',
+            ],
+            'mohsin.txt.access_robots' => [
+                'tab' => 'mohsin.txt::lang.plugin.name',
+                'label' => 'mohsin.txt::lang.permissions.access_robots',
+            ],
+            'mohsin.txt.access_agents' => [
+                'tab' => 'mohsin.txt::lang.plugin.name',
+                'label' => 'mohsin.txt::lang.permissions.access_agents',
+            ],
+        ];
+    }
+
     public function registerSettings()
     {
         return [
@@ -35,6 +57,7 @@ class Plugin extends PluginBase
                 'url'         => Backend::url('mohsin/txt/settings'),
                 'class'       => 'Mohsin\Txt\Models\Setting',
                 'order'       => 600,
+                'permissions' => ['mohsin.txt.access_settings'],
                 'keywords'    => 'txt robots humans'
             ],
             'humans' => [
@@ -43,6 +66,7 @@ class Plugin extends PluginBase
                 'category'    => 'mohsin.txt::lang.plugin.name',
                 'icon'        => 'icon-users',
                 'order'       => 601,
+                'permissions' => ['mohsin.txt.access_humans'],
                 'url'         => Backend::url('mohsin/txt/humans')
             ],
             'robots' => [
@@ -51,6 +75,7 @@ class Plugin extends PluginBase
                 'category'    => 'mohsin.txt::lang.plugin.name',
                 'icon'        => 'icon-android',
                 'order'       => 602,
+                'permissions' => ['mohsin.txt.access_robots'],
                 'url'         => Backend::url('mohsin/txt/robots')
             ],
             'agents' => [
@@ -59,6 +84,7 @@ class Plugin extends PluginBase
                 'category'    => 'mohsin.txt::lang.plugin.name',
                 'icon'        => 'icon-search',
                 'order'       => 603,
+                'permissions' => ['mohsin.txt.access_agents'],
                 'url'         => Backend::url('mohsin/txt/agents')
             ]
             ];
