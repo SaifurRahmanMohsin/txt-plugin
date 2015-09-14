@@ -37,5 +37,11 @@ return [
   ],
   'exception' => [
     'ask_enable' => 'First enable :file to view this page',
-  ]
+  ],
+  'permissions' => [
+    'access_settings' => 'Access settings',
+    'access_humans' => 'Access Humans',
+    'access_robots' => 'Access Robots',
+    'access_agents' => 'Access Agents',
+  ],
 ];
