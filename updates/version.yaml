@@ -20,3 +20,5 @@
     - Added compatability with RainLab.Sitemap
 1.0.6:
     - Added setting permissions. PR by @matissjanis
+1.0.7:
+    - Added new type for directive

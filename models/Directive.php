@@ -45,7 +45,9 @@ class Directive extends Model
 
     public function getTypeOptions($fieldName = null, $keyValue = null)
     {
-    	return ['Allow' => 'Allow',
-    					'Disallow' => 'Disallow'];
+        return ['Allow'     => 'Allow',
+                'Disallow'  => 'Disallow'
+                'Host'      => 'Host'
+                'Sitemap'   => 'Sitemap'];
     }
 }
