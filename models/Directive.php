@@ -47,7 +47,7 @@ class Directive extends Model
     {
         return ['Allow'     => 'Allow',
                 'Disallow'  => 'Disallow'
-                'Host'      => 'Host'
+                'Host'      => 'Host',
                 'Sitemap'   => 'Sitemap'];
     }
 }
