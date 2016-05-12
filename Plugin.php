@@ -1,14 +1,13 @@
 <?php namespace Mohsin\Txt;
 
-use Backend;
 use System\Classes\PluginBase;
+use Backend;
 
 /**
  * Txt Plugin Information File
  */
 class Plugin extends PluginBase
 {
-
     /**
      * Returns information about this plugin.
      *
@@ -20,7 +19,8 @@ class Plugin extends PluginBase
             'name'        => 'mohsin.txt::lang.plugin.name',
             'description' => 'mohsin.txt::lang.plugin.description',
             'author'      => 'Saifur Rahman Mohsin',
-            'icon'        => 'icon-map-marker'
+            'icon'        => 'icon-map-marker',
+            'homepage'    => 'https://github.com/SaifurRahmanMohsin/Txt'
         ];
     }
 
@@ -28,21 +28,21 @@ class Plugin extends PluginBase
     {
         return [
             'mohsin.txt.access_settings' => [
-                'tab' => 'mohsin.txt::lang.plugin.name',
-                'label' => 'mohsin.txt::lang.permissions.access_settings',
+                'tab'   => 'mohsin.txt::lang.plugin.name',
+                'label' => 'mohsin.txt::lang.permissions.access_settings'
             ],
             'mohsin.txt.access_humans' => [
-                'tab' => 'mohsin.txt::lang.plugin.name',
-                'label' => 'mohsin.txt::lang.permissions.access_humans',
+                'tab'   => 'mohsin.txt::lang.plugin.name',
+                'label' => 'mohsin.txt::lang.permissions.access_humans'
             ],
             'mohsin.txt.access_robots' => [
-                'tab' => 'mohsin.txt::lang.plugin.name',
-                'label' => 'mohsin.txt::lang.permissions.access_robots',
+                'tab'   => 'mohsin.txt::lang.plugin.name',
+                'label' => 'mohsin.txt::lang.permissions.access_robots'
             ],
             'mohsin.txt.access_agents' => [
-                'tab' => 'mohsin.txt::lang.plugin.name',
-                'label' => 'mohsin.txt::lang.permissions.access_agents',
-            ],
+                'tab'   => 'mohsin.txt::lang.plugin.name',
+                'label' => 'mohsin.txt::lang.permissions.access_agents'
+            ]
         ];
     }
 
@@ -87,16 +87,16 @@ class Plugin extends PluginBase
                 'permissions' => ['mohsin.txt.access_agents'],
                 'url'         => Backend::url('mohsin/txt/agents')
             ]
-            ];
+        ];
     }
 
-		public function registerFormWidgets()
-		{
-		    return [
-		        'Owl\FormWidgets\HasMany\Widget' => [
-		            'label' => 'Hasmany',
-		            'code' => 'owl-hasmany'
-		        ],
-		    ];
-		}
+    public function registerFormWidgets()
+    {
+        return [
+            'Owl\FormWidgets\HasMany\Widget' => [
+                'label' => 'Hasmany',
+                'code'  => 'owl-hasmany'
+            ]
+        ];
+    }
 }
