@@ -1,0 +1,26 @@
+<div data-owl="hasmany">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="popup">&times;</button>
+        <h4 class="modal-title"><?= $formLabel ?></h4>
+    </div>
+    <div class="modal-body form-container">
+        <form>
+            <?= $formWidget->render() ?>
+        <form>
+    </div>
+    <div class="modal-footer">
+        <div data-control="loading-indicator"></div>
+        <button
+            type="button"
+            class="btn btn-primary"
+            data-control="apply-btn">
+            <?= e(trans('backend::lang.form.apply')) ?>
+        </button>
+        <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="popup">
+            <?= e(trans('backend::lang.form.cancel')) ?>
+        </button>
+    </div>
+</div>

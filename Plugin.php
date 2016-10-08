@@ -93,7 +93,7 @@ class Plugin extends PluginBase
     public function registerFormWidgets()
     {
         return [
-            'Owl\FormWidgets\HasMany\Widget' => [
+            'Mohsin\Txt\FormWidgets\HasMany\Widget' => [
                 'label' => 'Hasmany',
                 'code'  => 'owl-hasmany'
             ]

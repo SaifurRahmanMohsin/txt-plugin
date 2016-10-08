@@ -1,0 +1,32 @@
+<div data-owl="hasmany"
+    data-alias="<?= $alias ?>"
+    data-config="<?= $config ?>"
+    <?php if ($default) echo 'class="default"' ?>
+>
+
+    <!-- Deferred delete -->
+    <input type="hidden"
+        data-control="delete-box"
+        name="<?= $this->alias ?>[delete]" value="[]" />
+
+    <!-- Render the list -->
+    <div data-control="list-container">
+        <?= $this->makePartial('list', ['items' => $items]) ?>
+    </div>
+
+    <!-- Add relation button -->
+    <?= $this->makePartial('add') ?>
+
+    <!-- Popup template -->
+    <script type="text/template" data-control="template">
+        <?= str_replace('script>', 'script&gt;', $this->makePartial('popup', ['formWidget' => $formWidget])) ?>
+    </script>
+
+    <!-- Initialize hasmany -->
+    <script type="text/javascript">
+        $(document).on('render', function() {
+            $('[data-owl="hasmany"][data-alias="<?= $alias ?>"]').HasMany()
+        })
+    </script>
+
+</div>
