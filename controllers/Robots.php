@@ -1,6 +1,9 @@
 <?php namespace Mohsin\Txt\Controllers;
 
+use File;
+use Backend;
 use BackendMenu;
+use Mohsin\Txt\Models\Robot;
 use Mohsin\Txt\Models\Setting;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
@@ -32,6 +35,18 @@ class Robots extends Controller
 
         if(!Setting::get('use_robots'))
             $this -> enabled = false;
+    }
+
+    public function onDownload()
+    {
+        return Backend::redirect('mohsin/txt/robots/download');
+    }
+
+    public function download()
+    {
+        $filePath = tempnam(storage_path(), "txt");
+        File::put($filePath, Robot::first()->generateTxt());
+        return response()->download($filePath, 'robots.txt')->deleteFileAfterSend(true);
     }
 
     public function listOverrideColumnValue($record, $columnName)

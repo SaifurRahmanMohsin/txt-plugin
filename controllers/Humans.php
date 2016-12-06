@@ -1,6 +1,9 @@
 <?php namespace Mohsin\Txt\Controllers;
 
+use File;
+use Backend;
 use BackendMenu;
+use Mohsin\Txt\Models\Human;
 use Mohsin\Txt\Models\Setting;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
@@ -37,6 +40,18 @@ class Humans extends Controller
 
         if(!Setting::get('use_humans'))
             $this -> enabled = false;
+    }
+
+    public function onDownload()
+    {
+        return Backend::redirect('mohsin/txt/humans/download');
+    }
+
+    public function download()
+    {
+        $filePath = tempnam(storage_path(), "txt");
+        File::put($filePath, Human::first()->generateTxt());
+        return response()->download($filePath, 'humans.txt')->deleteFileAfterSend(true);
     }
 
     public function listOverrideColumnValue($record, $columnName){
