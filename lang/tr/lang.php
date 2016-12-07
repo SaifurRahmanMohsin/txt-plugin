@@ -30,8 +30,10 @@ return [
       'label' => 'Enable robots.txt?'
     ],
     'human_fields' => [
-      'label' => 'Human Fields',
-      'commentAbove' => 'Comma - Seperated list of allowed human entries'
+      'singular' => 'Human Field',
+      'plural' => 'Human Fields',
+      'prompt' => 'Create new human field label',
+      'commentAbove' => 'Allowed human fields labels'
     ]
   ],
   'exception' => [

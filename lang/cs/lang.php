@@ -31,8 +31,10 @@ return [
       'label' => 'Aktivovat robots.txt?'
     ],
     'human_fields' => [
-      'label' => 'Záznamy humans.txt',
-      'commentAbove' => 'Čárkou oddělené záznamy, které se mají vypsat v humans.txt. Pokud necháte prázdné, předvyplní se automaticky Team, Site, Thanks, Technology.'
+      'singular' => 'Záznamy human',
+      'plural' => 'Záznamy humans',
+      'prompt' => 'Create new human field label',
+      'commentAbove' => 'Allowed human fields labels'
     ]
   ],
   'exception' => [

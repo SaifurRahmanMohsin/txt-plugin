@@ -30,8 +30,10 @@ return [
       'label' => 'Ieslēgt robots.txt?'
     ],
     'human_fields' => [
-      'label' => 'Humans.txt lauki',
-      'commentAbove' => 'Ar komatiem atdalīti lauki, kas rādīsies humans.txt'
+      'singular' => 'Humans.txt lauks',
+      'plural' => 'Humans.txt lauki',
+      'prompt' => 'Create new human field label',
+      'commentAbove' => 'Allowed human fields labels'
     ]
   ],
   'exception' => [

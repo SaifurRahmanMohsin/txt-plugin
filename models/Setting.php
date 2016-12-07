@@ -15,15 +15,9 @@ class Setting extends Model
     public $settingsFields = 'fields.yaml';
 
     /**
-     * Sets human_fields field to default when empty.
-     *
-     * @return void
+     * @var array Jsonable fields
      */
-    public function afterFetch()
-    {
-        if($this -> human_fields == "")
-          $this -> human_fields ='Team, Site, Thanks, Technology';
-    }
+    protected $jsonable = ['human_fields'];
 
     /**
      * Returns the list of CMS pages.

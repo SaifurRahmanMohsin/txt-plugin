@@ -23,12 +23,11 @@ class Human extends Model
 
     public function getAttributionOptions($fieldName = null, $keyValue = null)
     {
-      $human_fields = array_map('trim', explode(',', Setting::get('human_fields')));
-      $fields = array_combine($human_fields, $human_fields);
-      if ($fieldName !== null) {
-          unset($fields[$fieldName]);
-          array_unshift($fields, $fieldName);
-        }
+      $human_fields = Setting::get('human_fields');
+      array_walk($human_fields, function(&$value, $key) {
+          $value = $value['human_field'];
+      });
+      foreach($human_fields as $key => $val) $fields[$val]=$val;
       return $fields;
     }
 

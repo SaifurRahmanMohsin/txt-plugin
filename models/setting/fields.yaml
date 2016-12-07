@@ -17,8 +17,14 @@ fields:
         type: switch
 
     human_fields:
-        label: mohsin.txt::lang.settings.human_fields.label
+        label: mohsin.txt::lang.settings.human_fields.plural
+        type: repeater
         commentAbove: mohsin.txt::lang.settings.human_fields.commentAbove
+        prompt: mohsin.txt::lang.settings.human_fields.prompt
+        form:
+            fields:
+                human_field:
+                    label: mohsin.txt::lang.settings.human_fields.singular
         trigger:
             action: show
             field: use_humans
