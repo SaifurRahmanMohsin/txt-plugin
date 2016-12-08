@@ -4,9 +4,9 @@
 
 columns:
     name:
-        label: Agent Name
+        label: mohsin.txt::lang.agent.name
         searchable: true
 
     comment:
-        label: Comment
+        label: mohsin.txt::lang.agent.comment
         searchable: true

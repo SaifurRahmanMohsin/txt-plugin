@@ -27,3 +27,4 @@
 1.1.0:
     - Updated human field labels to repeater
     - refactor_settings_human_fields.php
+1.1.1: Upgraded Agents to use ImportExport behavior than custom code.

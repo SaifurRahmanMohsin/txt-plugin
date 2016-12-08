@@ -13,8 +13,8 @@ return [
     'label' => 'Humans',
     'description' => 'Dodaj rekordy do human.txt.'
   ],
-  'agents' => [
-    'label' => 'User-Agents',
+  'agent' => [
+    'plural' => 'User-Agents',
     'description' => 'Zarządzaj agentami (user-agents).'
   ],
   'settings' => [

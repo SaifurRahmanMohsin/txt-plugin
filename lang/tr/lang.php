@@ -12,8 +12,8 @@ return [
     'label' => 'Humans',
     'description' => 'Human kayıtları.'
   ],
-  'agents' => [
-    'label' => 'Agents',
+  'agent' => [
+    'plural' => 'Agents',
     'description' => 'Agent kayıtları.'
   ],
   'settings' => [

@@ -13,9 +13,19 @@ return [
     'label' => 'Humans',
     'description' => 'Add human entries.'
   ],
-  'agents' => [
-    'label' => 'Agents',
-    'description' => 'Add agent entries.'
+  'agent' => [
+    'plural' => 'Agents',
+    'description' => 'Add agent entries.',
+    'name' => 'Name',
+    'name_comment' => 'The name of the search agent',
+    'name_placeholder' => 'Googlebot',
+    'comment' => 'Comment',
+    'comment_comment' => 'A human friendly name to identify the agent',
+    'comment_placeholder' => 'Google\'s Web Crawler',
+    'clear_agent' => 'Clear agents',
+    'clear_agent_confirm' => 'Are you sure you want to remove all agents?',
+    'import_agent' => 'Import agents',
+    'export_agent' => 'Export agents'
   ],
   'settings' => [
     'label' => 'Settings',

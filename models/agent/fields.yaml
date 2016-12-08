@@ -4,11 +4,11 @@
 
 fields:
     name:
-        label: Agent Name
-        commentAbove: The name of the search agent
-        placeholder: Googlebot
+        label: mohsin.txt::lang.agent.name
+        commentAbove: mohsin.txt::lang.agent.name_comment
+        placeholder: mohsin.txt::lang.agent.name_placeholder
 
     comment:
-        label: Comment
-        commentAbove: A human friendly name to identify the agent
-        placeholder: Google's Web Crawler
+        label: mohsin.txt::lang.agent.comment
+        commentAbove: mohsin.txt::lang.agent.comment_comment
+        placeholder: mohsin.txt::lang.agent.comment_placeholder

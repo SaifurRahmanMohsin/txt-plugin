@@ -13,8 +13,8 @@ return [
     'label' => 'Humans.txt',
     'description' => 'Přidat nový humans.txt záznam'
   ],
-  'agents' => [
-    'label' => 'Agenti',
+  'agent' => [
+    'plural' => 'Agenti',
     'description' => 'Přidat nového agenta'
   ],
   'settings' => [

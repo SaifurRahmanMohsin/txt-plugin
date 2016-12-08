@@ -79,8 +79,8 @@ class Plugin extends PluginBase
                 'url'         => Backend::url('mohsin/txt/robots')
             ],
             'agents' => [
-                'label'       => 'mohsin.txt::lang.agents.label',
-                'description' => 'mohsin.txt::lang.agents.description',
+                'label'       => 'mohsin.txt::lang.agent.plural',
+                'description' => 'mohsin.txt::lang.agent.description',
                 'category'    => 'mohsin.txt::lang.plugin.name',
                 'icon'        => 'icon-search',
                 'order'       => 603,

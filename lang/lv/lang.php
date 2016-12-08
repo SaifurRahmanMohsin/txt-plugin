@@ -12,8 +12,8 @@ return [
     'label' => 'Humans',
     'description' => 'Pievienot humans.txt ierakstus.'
   ],
-  'agents' => [
-    'label' => 'Aģenti',
+  'agent' => [
+    'plural' => 'Aģenti',
     'description' => 'Pievienot aģentu ierakstus.'
   ],
   'settings' => [

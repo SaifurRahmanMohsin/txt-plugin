@@ -1,0 +1,7 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+    name: mohsin.txt::lang.agent.name
+    comment: mohsin.txt::lang.agent.comment

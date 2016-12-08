@@ -8,7 +8,6 @@ Txt Generator plugin for OctoberCMS
 As the title says, it allows you to generate [humans.txt](http://humanstxt.org/Standard.html) and [robots.txt](http://www.robotstxt.org/orig.html) for your web app.
 
 ## Installation ##
-
 #### MarketPlace Installation ####
 You can use the plugin code **Mohsin.Txt** in your October backend to get this plugin. Enjoy!!!
 
@@ -26,7 +25,6 @@ composer up
 Logout from your backend and login again. This will create the necessary tables for the plugin to work. You have now installed **Txt**! Enjoy!!!
 
 ## Thanks ##
-
 [Alexey Bobkov and Samuel Georges](http://octobercms.com) for OctoberCMS.
 
 [Scott Bedard](https://github.com/scottbedard) for HasMany Widget.

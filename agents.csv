@@ -1,0 +1,11 @@
+﻿Name,Comment
+*,All
+Googlebot,"Google's Web Crawler"
+baiduspider,"Baidu's Web Crawler"
+Bingbot,"Microsoft's Web Crawler"
+ia_archiver,"The Internet Archive"
+Naverbot,"South Korean Naver Web Crawler"
+Yeti,"South Korean Yeti Web Crawler"
+seznambot,"Czech Republic Seznam Web Crawler"
+Slurp,"Yahoo! Slurp Web Crawler"
+Yandex,"Russian Yandex Web Crawler"
