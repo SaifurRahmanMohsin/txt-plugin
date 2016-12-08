@@ -7,12 +7,17 @@ use Model;
  */
 class Directive extends Model
 {
-		use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Validation;
 
     /**
      * @var string The database table used by the model.
      */
     public $table = 'mohsin_txt_directives';
+
+    /**
+     * @var bool Indicates if the model should be timestamped.
+     */
+    public $timestamps = false;
 
     /**
      * @var array Fillable fields
@@ -45,9 +50,11 @@ class Directive extends Model
 
     public function getTypeOptions($fieldName = null, $keyValue = null)
     {
-        return ['Allow'     => 'Allow',
-                'Disallow'  => 'Disallow',
-                'Host'      => 'Host',
-                'Sitemap'   => 'Sitemap'];
+        return [
+            'Allow' 	 => 'Allow',
+            'Disallow' => 'Disallow',
+            'Host' 		 => 'Host',
+            'Sitemap'  => 'Sitemap'
+        ];
     }
 }

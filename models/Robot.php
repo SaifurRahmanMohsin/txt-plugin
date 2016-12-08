@@ -15,6 +15,11 @@ class Robot extends Model
     public $table = 'mohsin_txt_robots';
 
     /**
+     * @var bool Indicates if the model should be timestamped.
+     */
+    public $timestamps = false;
+
+    /**
      * @var array Relations
      */
     public $hasMany = [

@@ -12,6 +12,11 @@ class Agent extends Model
      */
     public $table = 'mohsin_txt_agents';
 
+    /**
+     * @var bool Indicates if the model should be timestamped.
+     */
+    public $timestamps = false;
+
      /**
      * Validation rules
      */

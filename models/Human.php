@@ -15,6 +15,11 @@ class Human extends Model
     public $table = 'mohsin_txt_humans';
 
     /**
+     * @var bool Indicates if the model should be timestamped.
+     */
+    public $timestamps = false;
+
+    /**
      * @var array Relations
      */
     public $hasMany = [
