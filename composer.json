@@ -1,5 +1,6 @@
 {
-    "name": "mohsin/txt",
+    "name": "mohsin/oc-txt-plugin",
+    "type": "october-plugin",
     "description": "Enable humans.txt and robots.txt in OctoberCMS",
     "homepage": "http://imoz.in",
     "keywords": ["octobercms", "humans","robots","txt", "attribution"],
