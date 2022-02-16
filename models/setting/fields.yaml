@@ -1,31 +1,44 @@
 # ===================================
 #  Form Field Definitions
 # ===================================
+tabs:
+    defaultTab: General
+    fields:
+        redirectpage:
+            label: mohsin.txt::lang.settings.redirectpage.label
+            commentAbove: mohsin.txt::lang.settings.redirectpage.commentAbove
+            type: dropdown
 
-fields:
-    redirectpage:
-        label: mohsin.txt::lang.settings.redirectpage.label
-        commentAbove: mohsin.txt::lang.settings.redirectpage.commentAbove
-        type: dropdown
+        use_robots:
+            label: mohsin.txt::lang.settings.use_robots.label
+            type: switch
+            span: left
 
-    use_robots:
-        label: mohsin.txt::lang.settings.use_robots.label
-        type: switch
+        use_humans:
+            label: mohsin.txt::lang.settings.use_humans.label
+            type: switch
+            span: right
 
-    use_humans:
-        label: mohsin.txt::lang.settings.use_humans.label
-        type: switch
+        _humans_field_hint:
+            type: hint
+            tab: Humans
+            comment: Enable humans.txt to use this section.
+            trigger:
+                action: hide
+                field: use_humans
+                condition: checked
 
-    human_fields:
-        label: mohsin.txt::lang.settings.human_fields.plural
-        type: repeater
-        commentAbove: mohsin.txt::lang.settings.human_fields.commentAbove
-        prompt: mohsin.txt::lang.settings.human_fields.prompt
-        form:
-            fields:
-                human_field:
-                    label: mohsin.txt::lang.settings.human_fields.singular
-        trigger:
-            action: show
-            field: use_humans
-            condition: checked
+        human_fields:
+            label: mohsin.txt::lang.settings.human_fields.plural
+            type: repeater
+            commentAbove: mohsin.txt::lang.settings.human_fields.commentAbove
+            prompt: mohsin.txt::lang.settings.human_fields.prompt
+            tab: Humans
+            form:
+                fields:
+                    human_field:
+                        label: mohsin.txt::lang.settings.human_fields.singular
+            trigger:
+                action: show
+                field: use_humans
+                condition: checked

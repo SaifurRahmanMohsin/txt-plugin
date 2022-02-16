@@ -15,9 +15,22 @@ class Setting extends Model
     public $settingsFields = 'fields.yaml';
 
     /**
-     * @var array Jsonable fields
+     * Reset the settings to the default values.
      */
-    protected $jsonable = ['human_fields'];
+    public function resetDefault()
+    {
+        $this::set([
+            'use_robots'   => 0,
+            'use_humans'   => 0,
+            'redirectpage' => key(Page::getNameList()),
+            'human_fields' => [
+                ['human_field' => 'Team', 'is_enabled' => true ],
+                ['human_field' => 'Site'],
+                ['human_field' => 'Thanks'],
+                ['human_field' => 'Technology'],
+            ]
+        ]);
+    }
 
     /**
      * Returns the list of CMS pages.

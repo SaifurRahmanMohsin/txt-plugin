@@ -16,16 +16,12 @@ defaultRedirect: mohsin/txt/robots
 
 # Create page
 create:
-    title: Create Agent
+    title: backend::lang.form.create_title
     redirect: mohsin/txt/robots/update/:id
     redirectClose: mohsin/txt/robots
 
 # Update page
 update:
-    title: Edit Agent
+    title: backend::lang.form.update_title
     redirect: mohsin/txt/robots
     redirectClose: mohsin/txt/robots
-
-# Preview page
-preview:
-    title: Preview Agent

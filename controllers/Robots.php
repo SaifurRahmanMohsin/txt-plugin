@@ -1,57 +1,66 @@
 <?php namespace Mohsin\Txt\Controllers;
 
-use File;
-use Backend;
+use Event;
 use BackendMenu;
-use Mohsin\Txt\Models\Robot;
-use Mohsin\Txt\Models\Setting;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
 
 /**
- * Robots Back-end Controller
+ * Robots Backend Controller
  */
 class Robots extends Controller
 {
     public $implement = [
-        'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController'
+        \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ListController::class,
+        \Backend\Behaviors\RelationController::class,
+        \Backend\Behaviors\ReorderController::class
     ];
 
+    /**
+     * @var string formConfig file
+     */
     public $formConfig = 'config_form.yaml';
+
+    /**
+     * @var string listConfig file
+     */
     public $listConfig = 'config_list.yaml';
 
     /**
-     * @var boolean Stores whether the txt is enabled or not.
+     * @var string relationConfig file
      */
-    public $enabled = true;
+    public $relationConfig = 'config_relation.yaml';
 
+    /**
+     * @var string reorderConfig file
+     */
+    public $reorderConfig = 'config_reorder.yaml';
+
+    /**
+     * __construct the controller
+     */
     public function __construct()
     {
         parent::__construct();
-
         SettingsManager::setContext('Mohsin.Txt', 'robots');
         BackendMenu::setContext('October.System', 'system', 'settings');
 
-        if(!Setting::get('use_robots'))
-            $this -> enabled = false;
+        // Returns form model for dropdown options filtering.
+        Event::listen('robot.agent.getContext', function () {
+            $isUpdate = $this->action === 'update';
+            return $isUpdate ? $this->formGetModel() : null;
+        });
     }
 
-    public function onDownload()
+    /**
+     * Extend the query so that the related model is being reordered.
+     * @param October\Rain\Database\Builder $query
+     * @return void
+     */
+    public function reorderExtendQuery($query)
     {
-        return Backend::redirect('mohsin/txt/robots/download');
-    }
-
-    public function download()
-    {
-        $filePath = tempnam(storage_path(), "txt");
-        File::put($filePath, Robot::first()->generateTxt());
-        return response()->download($filePath, 'robots.txt')->deleteFileAfterSend(true);
-    }
-
-    public function listOverrideColumnValue($record, $columnName)
-    {
-        if($columnName == "directives")
-            return count($record -> directives);
+        $recordId = current($this->params);
+        $query->where('robot_id', $recordId);
     }
 }

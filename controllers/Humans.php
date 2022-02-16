@@ -1,61 +1,49 @@
 <?php namespace Mohsin\Txt\Controllers;
 
-use File;
-use Backend;
+use Event;
 use BackendMenu;
-use Mohsin\Txt\Models\Human;
-use Mohsin\Txt\Models\Setting;
 use Backend\Classes\Controller;
 use System\Classes\SettingsManager;
 
 /**
- * Humans Back-end Controller
+ * Humans Backend Controller
  */
 class Humans extends Controller
 {
     public $implement = [
-        'Backend.Behaviors.FormController',
-        'Backend.Behaviors.ListController'
+        \Backend\Behaviors\FormController::class,
+        \Backend\Behaviors\ListController::class,
+        \Backend\Behaviors\RelationController::class
     ];
 
+    /**
+     * @var string formConfig file
+     */
     public $formConfig = 'config_form.yaml';
+
+    /**
+     * @var string listConfig file
+     */
     public $listConfig = 'config_list.yaml';
 
     /**
-     * @var boolean Stores whether the txt is enabled or not.
+     * @var string relationConfig file
      */
-    public $enabled = true;
+    public $relationConfig = 'config_relation.yaml';
 
     /**
-     * @var array The human entries.
+     * __construct the controller
      */
-    protected $humans;
-
     public function __construct()
     {
         parent::__construct();
-
         SettingsManager::setContext('Mohsin.Txt', 'humans');
         BackendMenu::setContext('October.System', 'system', 'settings');
 
-        if(!Setting::get('use_humans'))
-            $this -> enabled = false;
-    }
-
-    public function onDownload()
-    {
-        return Backend::redirect('mohsin/txt/humans/download');
-    }
-
-    public function download()
-    {
-        $filePath = tempnam(storage_path(), "txt");
-        File::put($filePath, Human::first()->generateTxt());
-        return response()->download($filePath, 'humans.txt')->deleteFileAfterSend(true);
-    }
-
-    public function listOverrideColumnValue($record, $columnName){
-        if( $columnName == "information" )
-            return $record -> information -> implode('value', ', ');
+        // Returns form model for dropdown options filtering.
+        Event::listen('human.information.getContext', function () {
+            $isUpdate = $this->action === 'update';
+            return $isUpdate ? $this->formGetModel() : null;
+        });
     }
 }

@@ -31,3 +31,7 @@
 1.1.2:
     - Database maintenance. Removed all the unused timestamp columns.
     - drop_timestamps.php
+2.0.0:
+    - Upgraded plugin for October 2.0.
+    - Made Txt models parent IDs nullable to allow deferred binding.
+    - update_txt_parent_ids_nullable.php

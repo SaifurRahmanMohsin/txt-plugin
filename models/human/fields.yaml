@@ -9,10 +9,5 @@ fields:
 
     information:
         label: Information
-        type: owl-hasmany
-        sortColumn: position
-        default:
-            label: "<b>{{ field }}</b>"
-            comment: >
-                &nbsp;{{ value }}
-            icon: icon-file-text-o
+        type: partial
+        path: information

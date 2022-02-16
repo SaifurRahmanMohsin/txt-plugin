@@ -3,10 +3,11 @@
 # ===================================
 
 columns:
-
     attribution:
         label: Attribution
         searchable: true
 
-    information:
-        label: Information
+    information_count:
+        label: Number of Entries
+        relation: information_count
+        relationCount: true

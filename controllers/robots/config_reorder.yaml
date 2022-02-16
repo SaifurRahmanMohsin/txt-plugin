@@ -1,0 +1,16 @@
+# ===================================
+#  Reorder Behavior Config
+# ===================================
+
+# Reorder Title
+title: Reorder Directives
+
+# Attribute name
+nameFrom: data
+
+# Model Class name
+modelClass: Mohsin\Txt\Models\Directive
+
+# Toolbar widget configuration
+toolbar:
+    buttons: reorder_toolbar

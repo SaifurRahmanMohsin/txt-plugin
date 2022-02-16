@@ -8,8 +8,7 @@ class CreateInformationTable extends Migration
 
     public function up()
     {
-        Schema::create('mohsin_txt_information', function($table)
-        {
+        Schema::create('mohsin_txt_information', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('human_id')->default(0);
@@ -24,5 +23,4 @@ class CreateInformationTable extends Migration
     {
         Schema::dropIfExists('mohsin_txt_information');
     }
-
 }

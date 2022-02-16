@@ -7,8 +7,10 @@ use Model;
  */
 class Agent extends Model
 {
+    use \October\Rain\Database\Traits\Validation;
+
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'mohsin_txt_agents';
 
@@ -17,8 +19,16 @@ class Agent extends Model
      */
     public $timestamps = false;
 
-     /**
-     * Validation rules
+    /**
+     * @var array fillable attributes are mass assignable
+     */
+    protected $fillable = [
+        'name',
+        'comment'
+    ];
+
+    /**
+     * @var array rules for validation
      */
     public $rules = [
         'name' => 'required'

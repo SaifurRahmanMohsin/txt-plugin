@@ -1,10 +1,12 @@
 # ===================================
-#  Form Field Definitions
+#  List Column Definitions
 # ===================================
 
-fields:
+columns:
     field:
         label: Field
+        searchable: true
 
     value:
         label: Value
+        searchable: true

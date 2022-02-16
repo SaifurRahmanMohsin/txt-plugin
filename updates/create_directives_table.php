@@ -8,8 +8,7 @@ class CreateDirectivesTable extends Migration
 
     public function up()
     {
-        Schema::create('mohsin_txt_directives', function($table)
-        {
+        Schema::create('mohsin_txt_directives', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('robot_id')->default(0);

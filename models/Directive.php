@@ -7,10 +7,11 @@ use Model;
  */
 class Directive extends Model
 {
+    use \October\Rain\Database\Traits\Sortable;
     use \October\Rain\Database\Traits\Validation;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'mohsin_txt_directives';
 
@@ -20,40 +21,52 @@ class Directive extends Model
     public $timestamps = false;
 
     /**
-     * @var array Fillable fields
+     * @var array guarded attributes aren't mass assignable
      */
-    protected $fillable = [
-        'type',
-        'data'
-    ];
+    protected $guarded = ['*'];
 
     /**
-     * @var array Relations
+     * @var string Overrides the sort order field name
      */
-    public $belongsTo = [
-        'robot' => ['Mohsin\txt\Models\Robot',
-        'table' => 'mohsin_txt_robots']
-    ];
+    const SORT_ORDER = 'position';
 
     /**
-     * @var array Validation rules
+     * @var array rules for validation
      */
     public $rules = [
         'type' => 'required',
         'data' => 'required'
     ];
 
+    /**
+     * @var array Custom validation error messages.
+     */
     public $customMessages = [
         'type.required' => 'Please select a directive type.',
         'data.required' => 'Data cannot be empty.'
     ];
 
+    /**
+     * @var array Relations
+     */
+    public $belongsTo = [
+        'robot' => [
+            'Mohsin\txt\Models\Robot',
+            'table' => 'mohsin_txt_robots'
+        ]
+    ];
+
+    /**
+     * @var string|null $fieldName The Field name
+     * @var string|null $keyValue The key value
+     * @return array The available type options
+     */
     public function getTypeOptions($fieldName = null, $keyValue = null)
     {
         return [
-            'Allow' 	 => 'Allow',
+            'Allow'    => 'Allow',
             'Disallow' => 'Disallow',
-            'Host' 		 => 'Host',
+            'Host'     => 'Host',
             'Sitemap'  => 'Sitemap'
         ];
     }

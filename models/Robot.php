@@ -1,7 +1,7 @@
 <?php namespace Mohsin\Txt\Models;
 
-use URL;
 use Model;
+use Event;
 use Mohsin\Txt\Models\Agent;
 
 /**
@@ -9,8 +9,10 @@ use Mohsin\Txt\Models\Agent;
  */
 class Robot extends Model
 {
+    use \October\Rain\Database\Traits\Validation;
+
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'mohsin_txt_robots';
 
@@ -20,10 +22,29 @@ class Robot extends Model
     public $timestamps = false;
 
     /**
+     * @var array guarded attributes aren't mass assignable
+     */
+    protected $guarded = ['*'];
+
+    /**
+     * @var array rules for validation
+     */
+    public $rules = [
+        'agent' => 'required'
+    ];
+
+    /**
      * @var array Relations
      */
     public $hasMany = [
-        'directives' => ['Mohsin\Txt\Models\Directive', 'table' => 'mohsin_txt_directive', 'order' => 'position asc']
+        'directives' => [
+            \Mohsin\Txt\Models\Directive::class,
+            'order' => 'position asc'
+        ],
+        'directives_count' => [
+            \Mohsin\Txt\Models\Directive::class,
+            'count' => true
+        ]
     ];
 
     /**
@@ -33,7 +54,15 @@ class Robot extends Model
      */
     public function getAgentOptions($fieldName = null, $keyValue = null)
     {
-    	return Agent::lists('comment','name');
+        $isUpdateContext = Event::fire('robot.agent.getContext');
+        $removedValues   = array_values($this->lists('agent', 'id'));
+        if ($isUpdateContext) { // Let the agent key of the update context exist.
+            $keyToExclude  = current($isUpdateContext)->agent;
+            $removedValues = array_filter($removedValues, function ($value) use ($keyToExclude) {
+                return $keyToExclude !== $value;
+            });
+        }
+        return Agent::whereNotIn('name', $removedValues)->lists('comment', 'name');
     }
 
     /**
@@ -43,23 +72,23 @@ class Robot extends Model
      */
     public function generateTxt()
     {
-    	$robots = "";
-    	foreach(Robot::all() as $robot)
-    		{
-    				$robots .= 'User-agent: ' . $robot -> agent . PHP_EOL;
-    				foreach($robot -> directives as $directive)
-    					$robots .= $directive -> type . ': ' .$directive -> data . PHP_EOL;
-    				$robots .= PHP_EOL;
-    		}
+        $robots = "";
+        foreach (Robot::all() as $robot) {
+            $robots .= 'User-agent: ' . $robot->agent . PHP_EOL;
+            foreach ($robot->directives as $directive) {
+                $robots .= $directive->type . ': ' .$directive->data . PHP_EOL;
+            }
+            $robots .= PHP_EOL;
+        }
 
-      /*
-       * Compatability with RainLab.Sitemap
-       */
-      if (class_exists('\RainLab\Sitemap\Classes\DefinitionItem')){
-          $url = URL::to('/sitemap.xml');;
-          $robots .= 'Sitemap: ' . $url;
-      }
+        /*
+         * Compatability with RainLab.Sitemap
+         */
+        if (class_exists('\RainLab\Sitemap\Classes\DefinitionItem')) {
+            $url = URL::to('/sitemap.xml');
+            $robots .= 'Sitemap: ' . $url;
+        }
 
-    	return $robots;
+        return $robots;
     }
 }

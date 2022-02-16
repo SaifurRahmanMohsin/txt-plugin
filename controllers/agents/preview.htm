@@ -14,6 +14,6 @@
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('mohsin/txt/agents') ?>" class="btn btn-default">Return to agents list</a></p>
+    <p><a href="<?= Backend::url('mohsin/txt/agents') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')) ?></a></p>
 
 <?php endif ?>

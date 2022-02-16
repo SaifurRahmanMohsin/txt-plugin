@@ -7,10 +7,10 @@ use Model;
  */
 class Information extends Model
 {
-		use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Validation;
 
     /**
-     * @var string The database table used by the model.
+     * @var string table associated with the model
      */
     public $table = 'mohsin_txt_information';
 
@@ -20,7 +20,7 @@ class Information extends Model
     public $timestamps = false;
 
     /**
-     * @var array Fillable fields
+     * @var array fillable attributes are mass assignable
      */
     protected $fillable = [
         'field',
@@ -28,7 +28,7 @@ class Information extends Model
     ];
 
     /**
-     * @var array Validation rules
+     * @var array rules for validation
      */
     public $rules = [
         'field' => 'required',
@@ -36,9 +36,12 @@ class Information extends Model
     ];
 
     /**
-     * @var array Relations
+     * @var array hasOne and other relations
      */
     public $belongsTo = [
-        'human' => ['Mohsin\txt\Models\Human', 'table' => 'mohsin_txt_humans']
+        'human' => [
+            'Mohsin\txt\Models\Human',
+            'table' => 'mohsin_txt_humans'
+        ]
     ];
 }

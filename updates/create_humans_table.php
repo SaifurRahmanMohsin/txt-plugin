@@ -5,11 +5,9 @@ use October\Rain\Database\Updates\Migration;
 
 class CreateHumansTable extends Migration
 {
-
     public function up()
     {
-        Schema::create('mohsin_txt_humans', function($table)
-        {
+        Schema::create('mohsin_txt_humans', function ($table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('attribution');
@@ -21,5 +19,4 @@ class CreateHumansTable extends Migration
     {
         Schema::dropIfExists('mohsin_txt_humans');
     }
-
 }

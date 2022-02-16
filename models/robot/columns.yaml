@@ -3,10 +3,11 @@
 # ===================================
 
 columns:
-
     agent:
         label: Agent
         searchable: true
 
-    directives:
-        label: Directives
+    directives_count:
+        label: Number of Entries
+        relation: directives_count
+        relationCount: true

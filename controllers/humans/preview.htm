@@ -7,13 +7,13 @@
 
 <?php if (!$this->fatalError): ?>
 
-    <div class="layout-item stretch layout-column form-preview">
+    <div class="form-preview">
         <?= $this->formRenderPreview() ?>
     </div>
 
 <?php else: ?>
 
     <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-    <p><a href="<?= Backend::url('mohsin/txt/humans') ?>" class="btn btn-default">Return to humans list</a></p>
+    <p><a href="<?= Backend::url('mohsin/txt/humans') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')) ?></a></p>
 
 <?php endif ?>

@@ -1,0 +1,16 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('mohsin/txt/robots') ?>">Robots</a></li>
+        <li><a href="<?= Backend::url('mohsin/txt/robots/update/'. current($this->params)) ?>">Update Robot</a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<div data-control="toolbar">
+    <p>
+        <a
+          href="<?= Backend::url('mohsin/txt/robots/update/'. current($this->params)) ?>"
+          class="btn btn-default">Return to Edit Robot
+        </a>
+    </p>
+</div>

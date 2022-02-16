@@ -1,0 +1,13 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+directives:
+    label: Directive
+    deferredBinding: true
+    manage:
+        form: $/mohsin/txt/models/directive/fields.yaml
+        list: $/mohsin/txt/models/directive/columns.yaml
+    view:
+        list: $/mohsin/txt/models/directive/columns.yaml
+        toolbarButtons: create|delete|reorder

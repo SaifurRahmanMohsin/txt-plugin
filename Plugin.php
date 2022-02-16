@@ -1,7 +1,8 @@
 <?php namespace Mohsin\Txt;
 
-use System\Classes\PluginBase;
+use Event;
 use Backend;
+use System\Classes\PluginBase;
 
 /**
  * Txt Plugin Information File
@@ -20,10 +21,62 @@ class Plugin extends PluginBase
             'description' => 'mohsin.txt::lang.plugin.description',
             'author'      => 'Saifur Rahman Mohsin',
             'icon'        => 'icon-map-marker',
-            'homepage'    => 'https://github.com/SaifurRahmanMohsin/Txt'
+            'homepage'    => 'https://github.com/SaifurRahmanMohsin/txt-plugin',
         ];
     }
 
+    /**
+     * boot method, called right before the request route.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Event::listen('system.settings.extendItems', function ($settingsManager) {
+            if (\Mohsin\Txt\Models\Setting::get('use_robots')) {
+                $settingsManager->addSettingItems('Mohsin.txt', [
+                    'robots' => [
+                        'label'       => 'mohsin.txt::lang.robots.label',
+                        'description' => 'mohsin.txt::lang.robots.description',
+                        'category'    => 'mohsin.txt::lang.plugin.name',
+                        'icon'        => 'icon-android',
+                        'order'       => 601,
+                        'permissions' => ['mohsin.txt.access_robots'],
+                        'url'         => Backend::url('mohsin/txt/robots')
+                    ],
+                    'agents' => [
+                        'label'       => 'mohsin.txt::lang.agent.plural',
+                        'description' => 'mohsin.txt::lang.agent.description',
+                        'category'    => 'mohsin.txt::lang.plugin.name',
+                        'icon'        => 'icon-search',
+                        'order'       => 602,
+                        'permissions' => ['mohsin.txt.access_agents'],
+                        'url'         => Backend::url('mohsin/txt/agents')
+                    ]
+                ]);
+            }
+
+            if (\Mohsin\Txt\Models\Setting::get('use_humans')) {
+                $settingsManager->addSettingItems('Mohsin.txt', [
+                    'humans' => [
+                        'label'       => 'mohsin.txt::lang.humans.label',
+                        'description' => 'mohsin.txt::lang.humans.description',
+                        'category'    => 'mohsin.txt::lang.plugin.name',
+                        'icon'        => 'icon-users',
+                        'order'       => 603,
+                        'permissions' => ['mohsin.txt.access_humans'],
+                        'url'         => Backend::url('mohsin/txt/humans')
+                    ]
+                ]);
+            }
+        });
+    }
+
+    /**
+     * Registers any back-end permissions used by this plugin.
+     *
+     * @return array
+     */
     public function registerPermissions()
     {
         return [
@@ -46,6 +99,11 @@ class Plugin extends PluginBase
         ];
     }
 
+    /**
+     * Registers any settings used by this plugin.
+     *
+     * @return array
+     */
     public function registerSettings()
     {
         return [
@@ -59,43 +117,6 @@ class Plugin extends PluginBase
                 'order'       => 600,
                 'permissions' => ['mohsin.txt.access_settings'],
                 'keywords'    => 'txt robots humans'
-            ],
-            'humans' => [
-                'label'       => 'mohsin.txt::lang.humans.label',
-                'description' => 'mohsin.txt::lang.humans.description',
-                'category'    => 'mohsin.txt::lang.plugin.name',
-                'icon'        => 'icon-users',
-                'order'       => 601,
-                'permissions' => ['mohsin.txt.access_humans'],
-                'url'         => Backend::url('mohsin/txt/humans')
-            ],
-            'robots' => [
-                'label'       => 'mohsin.txt::lang.robots.label',
-                'description' => 'mohsin.txt::lang.robots.description',
-                'category'    => 'mohsin.txt::lang.plugin.name',
-                'icon'        => 'icon-android',
-                'order'       => 602,
-                'permissions' => ['mohsin.txt.access_robots'],
-                'url'         => Backend::url('mohsin/txt/robots')
-            ],
-            'agents' => [
-                'label'       => 'mohsin.txt::lang.agent.plural',
-                'description' => 'mohsin.txt::lang.agent.description',
-                'category'    => 'mohsin.txt::lang.plugin.name',
-                'icon'        => 'icon-search',
-                'order'       => 603,
-                'permissions' => ['mohsin.txt.access_agents'],
-                'url'         => Backend::url('mohsin/txt/agents')
-            ]
-        ];
-    }
-
-    public function registerFormWidgets()
-    {
-        return [
-            'Mohsin\Txt\FormWidgets\HasMany\Widget' => [
-                'label' => 'Hasmany',
-                'code'  => 'owl-hasmany'
             ]
         ];
     }

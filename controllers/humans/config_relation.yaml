@@ -1,0 +1,13 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+information:
+    label: Information
+    deferredBinding: true
+    manage:
+        form: $/mohsin/txt/models/information/fields.yaml
+        list: $/mohsin/txt/models/information/columns.yaml
+    view:
+        list: $/mohsin/txt/models/information/columns.yaml
+        toolbarButtons: create|delete
