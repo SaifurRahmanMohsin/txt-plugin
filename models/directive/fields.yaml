@@ -5,9 +5,16 @@
 fields:
     type:
         label: Type
+        commentAbove: The type of directive.
         type: dropdown
+        span: left
 
     data:
         label: Data
-        commentAbove: Enter a string for comment, a relative URL for other types
+        commentAbove: A string for comment, a relative URL for other types
         placeholder: "/private"
+        span: right
+
+    new_line:
+        label: Add New Line? (To end a section)
+        type: checkbox

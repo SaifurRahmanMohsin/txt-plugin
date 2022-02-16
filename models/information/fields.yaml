@@ -5,6 +5,14 @@
 fields:
     field:
         label: Field
+        commentAbove: Any identifier (Designation, Twitter, Location, etc.)
+        span: left
 
     value:
         label: Value
+        commentAbove: The value of the identifier (Developer, India, etc.)
+        span: right
+
+    new_line:
+        label: Add New Line? (To end a section)
+        type: checkbox

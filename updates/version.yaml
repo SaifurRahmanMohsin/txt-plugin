@@ -35,3 +35,6 @@
     - Upgraded plugin for October 2.0.
     - Made Txt models parent IDs nullable to allow deferred binding.
     - update_txt_parent_ids_nullable.php
+2.0.1:
+    - Adds New Line Txt Option
+    - add_new_line_column.php

@@ -88,6 +88,7 @@ class Human extends Model
                 $humans .= '/* ' . $human->attribution . ' */' . PHP_EOL;
                 foreach ($human->information as $information) {
                     $humans .= $information->field . ': ' .$information->value . PHP_EOL;
+                    $humans .= $information->new_line ? PHP_EOL : '';
                 }
                 $humans .= PHP_EOL;
             }

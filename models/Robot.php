@@ -77,6 +77,7 @@ class Robot extends Model
             $robots .= 'User-agent: ' . $robot->agent . PHP_EOL;
             foreach ($robot->directives as $directive) {
                 $robots .= $directive->type . ': ' .$directive->data . PHP_EOL;
+                $robots .= $directive->new_line ? PHP_EOL : '';
             }
             $robots .= PHP_EOL;
         }
