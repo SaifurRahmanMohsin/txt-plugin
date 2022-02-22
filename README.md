@@ -12,3 +12,6 @@ As the title says, it allows you to generate [humans.txt](http://humanstxt.org/S
 
 ## Installation ##
 You can use the plugin code **Mohsin.Txt** in your October backend to get this plugin. Enjoy!!!
+
+## Running unit tests ##
+If you would like to run the unit tests on this plugin, then run `../../../vendor/bin/phpunit` from the plugin folder.
