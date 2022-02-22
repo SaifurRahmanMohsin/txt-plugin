@@ -24,7 +24,8 @@ class Child extends Model
      */
     protected $fillable = [
         'field',
-        'value'
+        'value',
+        'new_line'
     ];
 
     /**

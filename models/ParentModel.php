@@ -27,6 +27,13 @@ class ParentModel extends Model
     ];
 
     /**
+     * @var array fillable attributes are mass assignable
+     */
+    protected $fillable = [
+        'key'
+    ];
+
+    /**
      * Scope to only include only robot txts.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
