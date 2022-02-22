@@ -5,25 +5,9 @@ use Model;
 /**
  * Directive Model
  */
-class Directive extends Model
+class Directive extends Child
 {
     use \October\Rain\Database\Traits\Sortable;
-    use \October\Rain\Database\Traits\Validation;
-
-    /**
-     * @var string table associated with the model
-     */
-    public $table = 'mohsin_txt_directives';
-
-    /**
-     * @var bool Indicates if the model should be timestamped.
-     */
-    public $timestamps = false;
-
-    /**
-     * @var array guarded attributes aren't mass assignable
-     */
-    protected $guarded = ['*'];
 
     /**
      * @var string Overrides the sort order field name
@@ -31,19 +15,11 @@ class Directive extends Model
     const SORT_ORDER = 'position';
 
     /**
-     * @var array rules for validation
-     */
-    public $rules = [
-        'type' => 'required',
-        'data' => 'required'
-    ];
-
-    /**
      * @var array Custom validation error messages.
      */
     public $customMessages = [
-        'type.required' => 'Please select a directive type.',
-        'data.required' => 'Data cannot be empty.'
+        'field.required' => 'Please select a directive type.',
+        'value.required' => 'Data cannot be empty.'
     ];
 
     /**
@@ -51,10 +27,62 @@ class Directive extends Model
      */
     public $belongsTo = [
         'robot' => [
-            'Mohsin\txt\Models\Robot',
-            'table' => 'mohsin_txt_robots'
+            \Mohsin\txt\Models\Robot::class,
+            'table' => 'mohsin_txt_parents'
         ]
     ];
+
+    /**
+     * Override the boot method to limit this model to robot
+     * txts in the parent model.
+     */
+    protected static function boot()
+    {
+        static::addGlobalScope('directive', function ($builder) {
+            $builder->where('is_robot', 1);
+        });
+        parent::boot();
+    }
+
+    /**
+     * Overloads the type attribute to use the child equivalent.
+     *
+     * @return string
+     */
+    public function getTypeAttribute()
+    {
+        return $this->field;
+    }
+
+    /**
+     * Overloads the type attribute to use the child equivalent.
+     *
+     * @return string
+     */
+    public function setTypeAttribute($value)
+    {
+        $this->field = $value;
+    }
+
+    /**
+     * Overloads the data attribute to use the child equivalent.
+     *
+     * @return string
+     */
+    public function getDataAttribute()
+    {
+        return $this->value;
+    }
+
+    /**
+     * Overloads the data attribute to use the child equivalent.
+     *
+     * @return string
+     */
+    public function setDataAttribute($value)
+    {
+        $this->value = $value;
+    }
 
     /**
      * @var string|null $fieldName The Field name

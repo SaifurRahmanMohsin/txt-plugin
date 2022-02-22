@@ -7,15 +7,8 @@ use Mohsin\Txt\Models\Agent;
 /**
  * Robot Model
  */
-class Robot extends Model
+class Robot extends ParentModel
 {
-    use \October\Rain\Database\Traits\Validation;
-
-    /**
-     * @var string table associated with the model
-     */
-    public $table = 'mohsin_txt_robots';
-
     /**
      * @var bool Indicates if the model should be timestamped.
      */
@@ -27,10 +20,10 @@ class Robot extends Model
     protected $guarded = ['*'];
 
     /**
-     * @var array rules for validation
+     * @var array Custom validation error messages.
      */
-    public $rules = [
-        'agent' => 'required'
+    public $customMessages = [
+        'key.required' => 'The user agent cannot be empty.'
     ];
 
     /**
@@ -39,13 +32,47 @@ class Robot extends Model
     public $hasMany = [
         'directives' => [
             \Mohsin\Txt\Models\Directive::class,
-            'order' => 'position asc'
+            'order' => 'position asc',
+            'key'   => 'parent_id'
         ],
         'directives_count' => [
             \Mohsin\Txt\Models\Directive::class,
-            'count' => true
+            'count' => true,
+            'key'   => 'parent_id'
         ]
     ];
+
+    /**
+     * Override the boot method to limit this model to robot
+     * txts in the parent model.
+     */
+    protected static function boot()
+    {
+        static::addGlobalScope('robot', function ($builder) {
+            $builder->where('is_robot', 1);
+        });
+        parent::boot();
+    }
+
+    /**
+     * Overloads the agent attribute to use the parent equivalent.
+     *
+     * @return string
+     */
+    public function getAgentAttribute()
+    {
+        return $this->key;
+    }
+
+    /**
+     * Overloads the agent attribute to use the parent equivalent.
+     *
+     * @return string
+     */
+    public function setAgentAttribute($value)
+    {
+        $this->key = $value;
+    }
 
     /**
      * Returns associative array of available agents.
@@ -55,7 +82,7 @@ class Robot extends Model
     public function getAgentOptions($fieldName = null, $keyValue = null)
     {
         $isUpdateContext = Event::fire('robot.agent.getContext');
-        $removedValues   = array_values($this->lists('agent', 'id'));
+        $removedValues   = array_values($this->lists('key', 'id'));
         if ($isUpdateContext) { // Let the agent key of the update context exist.
             $keyToExclude  = current($isUpdateContext)->agent;
             $removedValues = array_filter($removedValues, function ($value) use ($keyToExclude) {
@@ -76,7 +103,7 @@ class Robot extends Model
         foreach (Robot::all() as $robot) {
             $robots .= 'User-agent: ' . $robot->agent . PHP_EOL;
             foreach ($robot->directives as $directive) {
-                $robots .= $directive->type . ': ' .$directive->data . PHP_EOL;
+                $robots .= $directive->type . ': ' . $directive->data . PHP_EOL;
                 $robots .= $directive->new_line ? PHP_EOL : '';
             }
             $robots .= PHP_EOL;

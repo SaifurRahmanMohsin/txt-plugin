@@ -3,7 +3,7 @@
 # ===================================
 
 columns:
-    agent:
+    key:
         label: Agent
         searchable: true
 

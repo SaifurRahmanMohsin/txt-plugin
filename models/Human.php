@@ -6,30 +6,18 @@ use Event;
 /**
  * Human Model
  */
-class Human extends Model
+class Human extends ParentModel
 {
-    use \October\Rain\Database\Traits\Validation;
-
-    /**
-     * @var string table associated with the model
-     */
-    public $table = 'mohsin_txt_humans';
-
-    /**
-     * @var bool Indicates if the model should be timestamped.
-     */
-    public $timestamps = false;
-
     /**
      * @var array guarded attributes aren't mass assignable
      */
     protected $guarded = ['*'];
 
     /**
-     * @var array rules for validation
+     * @var array Custom validation error messages.
      */
-    public $rules = [
-        'attribution' => 'required'
+    public $customMessages = [
+        'key.required' => 'Attribution field cannot be empty.'
     ];
 
     /**
@@ -38,16 +26,50 @@ class Human extends Model
     public $hasMany = [
         'information' => [
             'Mohsin\Txt\Models\Information',
-            'table' => 'mohsin_txt_information',
+            'table' => 'mohsin_txt_children',
+            'key'   => 'parent_id',
             'order' => 'position asc'
         ],
         'information_count' => [
             'Mohsin\Txt\Models\Information',
-            'table' => 'mohsin_txt_information',
+            'table' => 'mohsin_txt_children',
             'order' => 'position asc',
+            'key'   => 'parent_id',
             'count' => true
         ]
     ];
+
+    /**
+     * Override the boot method to limit this model to robot
+     * txts in the parent model.
+     */
+    protected static function boot()
+    {
+        static::addGlobalScope('humans', function ($builder) {
+            $builder->where('is_robot', 0);
+        });
+        parent::boot();
+    }
+
+    /**
+     * Overloads the type attribute to use the parent equivalent.
+     *
+     * @return string
+     */
+    public function getAttributionAttribute()
+    {
+        return $this->key;
+    }
+
+    /**
+     * Overloads the attribution attribute to use the parent equivalent.
+     *
+     * @return string
+     */
+    public function setAttributionAttribute($value)
+    {
+        $this->key = $value;
+    }
 
     /**
      * Returns associative array of available attributions.
@@ -61,7 +83,7 @@ class Human extends Model
         $allHumanFields = array_column($allHumanFields, 'human_field');
 
         // Remove used human attributes.
-        $removedValues = array_values($this->lists('attribution', 'id'));
+        $removedValues = array_values($this->lists('key', 'id'));
 
         // In the update context, let the human attribute that's being updated exist.
         $isUpdateContext = Event::fire('human.information.getContext');

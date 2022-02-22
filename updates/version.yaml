@@ -38,3 +38,9 @@
 2.0.1:
     - Adds New Line Txt Option
     - add_new_line_column.php
+2.0.2:
+    - Normalized Txt tables to improve efficiency.
+    - Create Parents Table
+    - create_parents_table.php
+    - Create Children Table
+    - create_children_table.php

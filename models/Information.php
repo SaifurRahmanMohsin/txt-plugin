@@ -5,34 +5,14 @@ use Model;
 /**
  * Information Model
  */
-class Information extends Model
+class Information extends Child
 {
-    use \October\Rain\Database\Traits\Validation;
-
     /**
-     * @var string table associated with the model
+     * @var array Custom validation error messages.
      */
-    public $table = 'mohsin_txt_information';
-
-    /**
-     * @var bool Indicates if the model should be timestamped.
-     */
-    public $timestamps = false;
-
-    /**
-     * @var array fillable attributes are mass assignable
-     */
-    protected $fillable = [
-        'field',
-        'value'
-    ];
-
-    /**
-     * @var array rules for validation
-     */
-    public $rules = [
-        'field' => 'required',
-        'value' => 'required'
+    public $customMessages = [
+        'field.required' => 'The field cannot be empty.',
+        'value.required' => 'The value cannot be empty.'
     ];
 
     /**
@@ -41,7 +21,19 @@ class Information extends Model
     public $belongsTo = [
         'human' => [
             'Mohsin\txt\Models\Human',
-            'table' => 'mohsin_txt_humans'
+            'table' => 'mohsin_txt_parents'
         ]
     ];
+
+    /**
+     * Override the boot method to limit this model to robot
+     * txts in the parent model.
+     */
+    protected static function boot()
+    {
+        static::addGlobalScope('information', function ($builder) {
+            $builder->where('is_robot', 0);
+        });
+        parent::boot();
+    }
 }

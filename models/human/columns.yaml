@@ -3,7 +3,7 @@
 # ===================================
 
 columns:
-    attribution:
+    key:
         label: Attribution
         searchable: true
 

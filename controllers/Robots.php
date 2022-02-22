@@ -61,6 +61,6 @@ class Robots extends Controller
     public function reorderExtendQuery($query)
     {
         $recordId = current($this->params);
-        $query->where('robot_id', $recordId);
+        $query->where('parent_id', $recordId);
     }
 }
