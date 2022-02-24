@@ -7,7 +7,7 @@ Txt Generator plugin for OctoberCMS
 ![tests](https://github.com/SaifurRahmanMohsin/txt-plugin/actions/workflows/tests.yml/badge.svg)
 
 ## Introduction ##
-The world has humans and robots. Humans build things (including robots) and they deserve credit for doing so when they do. Robots, on the other hand, do what they are built to do, and sometimes you want to exclude certain behaviors. This plugin helps you to do both of this with ease.
+The world has humans and robots. Humans build things (including robots) and they deserve credit for doing so when they do. Robots, on the other hand, do what they are built to do, and sometimes you want to exclude certain behaviors. This plugin helps you to do both of these with ease.
 
 As the title says, it allows you to generate [humans.txt](http://humanstxt.org/Standard.html) and [robots.txt](http://www.robotstxt.org/orig.html) for your web app.
 
