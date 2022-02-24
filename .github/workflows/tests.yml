@@ -1,0 +1,33 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  phpUnitTests:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: 8.0
+          extensions: mbstring, intl, gd, xml, sqlite
+      - name: Install OctoberCMS
+        uses: actions/checkout@v2
+        with:
+          ref: develop
+          repository: octobercms/october-private
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - name: Install OctoberCMS dependencies
+        run: composer install --no-interaction --no-progress --no-scripts
+      - name: Checkout changes
+        uses: actions/checkout@v2
+        with:
+          path: plugins/mohsin/txt
+      - name: Install dependencies
+        run: cd plugins/mohsin/txt && composer install --no-interaction --no-progress --no-scripts
+      - name: Run Plugin Tests
+        run: cd plugins/mohsin/txt && ../../../vendor/bin/phpunit
