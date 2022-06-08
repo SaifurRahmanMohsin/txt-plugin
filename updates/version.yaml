@@ -22,7 +22,7 @@
     - Added setting permissions. PR by @matissjanis
 1.0.7:
     - Added new type for directive
-1.0.8: !!! Important bug fix
+1.0.8: Bug fix
 1.0.9: Download Txt Feature
 1.1.0:
     - Updated human field labels to repeater
