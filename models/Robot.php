@@ -1,6 +1,6 @@
 <?php namespace Mohsin\Txt\Models;
 
-use Model;
+use URL;
 use Event;
 use Mohsin\Txt\Models\Agent;
 
