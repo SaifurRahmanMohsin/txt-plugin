@@ -1,6 +1,6 @@
 <?php namespace Mohsin\Txt\Models;
 
-use Model;
+use URL;
 use Event;
 use Mohsin\Txt\Models\Agent;
 
@@ -83,7 +83,7 @@ class Robot extends ParentModel
     {
         $isUpdateContext = Event::fire('robot.agent.getContext');
         $removedValues   = array_values($this->lists('key', 'id'));
-        if ($isUpdateContext) { // Let the agent key of the update context exist.
+        if ($isUpdateContext && isset(current($isUpdateContext)->agent)) { // Let the agent key of the update context exist.
             $keyToExclude  = current($isUpdateContext)->agent;
             $removedValues = array_filter($removedValues, function ($value) use ($keyToExclude) {
                 return $keyToExclude !== $value;

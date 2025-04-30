@@ -87,7 +87,7 @@ class Human extends ParentModel
 
         // In the update context, let the human attribute that's being updated exist.
         $isUpdateContext = Event::fire('human.information.getContext');
-        if ($isUpdateContext) {
+        if ($isUpdateContext && isset(current($isUpdateContext)->attribution)) {
             $keyToExclude = current($isUpdateContext)->attribution;
             if (($key = array_search($keyToExclude, $removedValues)) !== false) {
                 unset($removedValues[$key]);
