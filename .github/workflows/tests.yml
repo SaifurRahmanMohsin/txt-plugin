@@ -13,7 +13,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@master
         with:
-          php-version: 8.0
+          php-version: 8.3
           extensions: mbstring, intl, gd, xml, sqlite
       - name: Install OctoberCMS
         uses: actions/checkout@v2
@@ -21,6 +21,7 @@ jobs:
           ref: develop
           repository: octobercms/october-private
           token: ${{ secrets.ACCESS_TOKEN }}
+
       - name: Install OctoberCMS dependencies
         run: composer install --no-interaction --no-progress --no-scripts
       - name: Checkout changes
@@ -28,6 +29,6 @@ jobs:
         with:
           path: plugins/mohsin/txt
       - name: Install dependencies
-        run: cd plugins/mohsin/txt && composer install --no-interaction --no-progress --no-scripts
+        run: cd plugins/mohsin/txt && composer config --no-plugins allow-plugins.composer/installers true && composer install --no-interaction --no-progress --no-scripts
       - name: Run Plugin Tests
         run: cd plugins/mohsin/txt && ../../../vendor/bin/phpunit
